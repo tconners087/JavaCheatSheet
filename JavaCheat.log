@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  27 FEB 2019 20:28
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  28 FEB 2019 14:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,14 +570,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
 [1
 
-] [2] (./JavaCheat.aux) ) 
+]
+Overfull \hbox (42.5536pt too wide) in paragraph at lines 270--271
+[][]\TU/lmtt/m/n/10 While(itr.hasNext()){ System.out.println(itr.next())
+ []
+
+
+Overfull \hbox (22.90611pt too wide) in paragraph at lines 294--295
+[][]\TU/lmtt/m/n/10 HashMap<Integer, String> hmap = new HashMap<Integer,
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
+[][]\TU/lmtt/m/n/10 map.compute(key, (k, v) -> (v == null) ?
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
+[][]\TU/lmtt/m/n/10 Hashtable<String, String> hashtable = new
+ []
+
+[3]
+Overfull \hbox (61.23611pt too wide) in paragraph at lines 430--431
+[][]\TU/lmtt/m/n/10 for (Enumeration<E> e = v.elements(); e.hasMoreElements();)
+
+ []
+
+[4] (./JavaCheat.aux) ) 
 Here is how much of TeX's memory you used:
  14952 strings out of 492933
  319650 string characters out of 6136537
- 453018 words of memory out of 5000000
+ 454018 words of memory out of 5000000
  18921 multiletter control sequences out of 15000+600000
  535266 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,5n,93p,425b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,5n,93p,499b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on JavaCheat.pdf (2 pages).
+Output written on JavaCheat.pdf (4 pages).

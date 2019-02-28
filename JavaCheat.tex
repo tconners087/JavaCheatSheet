@@ -208,6 +208,252 @@
 \end{itemize*}
 
 
+\section{HashSet}
+\subsection{Constructors}
+
+\begin{itemize*}
+
+	\item \textbf{HashSet}()
+	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has default initial capacity 16 and load factor 0.75.}
+
+	\item \textbf{HashSet}(Collection<? extends E> c)
+	\item[] \cmnt{// Constructs a new set containing the elements in the specified collection.}
+	
+	\item \textbf{HashSet}(int initialCapacity)
+	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has specified initial capacity and load factor 0.75.}
+	
+	\item \textbf{HashSet}(int initialCapacity, float loadFactor)
+	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has specified initial capacity and specified load factor.}
+
+\end{itemize*}
+
+\subsection{Creating a HashSet Instance}
+	
+\begin{itemize*}
+	\item \pseudo{HashSet<T> set = new HashSet<T>();}
+	\item[] \cmnt{// Creates a new set of the specified type using default constructor.}
+	
+	\item \pseudo{ArrayList<T> list = new ArrayList<T>();}
+	\item[] \pseudo{HashSet<T> set = new HashSet(list);}
+	\item[] \cmnt{// Creates a new set containing the elements of another collection.}
+\end{itemize*}
+
+\subsection{HashSet Methods}
+
+\begin{itemize*}
+	\item public boolean \textbf{add}(E e)
+	\item[] \cmnt{// Adds the specified element to the set if it is not already present. If the set already contains the element, the set is unchanged and method returns false.}
+	
+	\item public boolean \textbf{remove}(Object o)
+	\item[] \cmnt{// Removes the specified element from the set if it is present. Returns true if the set contained the element and the element was true; else, method returns false.}
+	
+	\item public void \textbf{clear}()
+	\item[] \cmnt{// Removes all elements from `this' set. The set will be empty after the call returns.}
+	
+	\item public Object \textbf{clone}()
+	\item[] \cmnt{// Returns a shallow copy of `this' HashSet instance; the elements themselves are not cloned.}
+	
+	\item public boolean \textbf{contains}(Object o)
+	\item[] \cmnt{// Returns true if `this' set contains the specified element.}
+	
+	\item public boolean \textbf{isEmpty}()
+	\item[] \cmnt{// Returns true if `this' set contains no elements.}
+	
+	\item public int \textbf{size}()
+	\item[] \cmnt{// Returns the number of elements in this set (its cardinality).}
+	
+	\item public Iterator<E> \textbf{iterator}()
+	\item[] \cmnt{// Returns an iterator over the elements in `this' set. The elements are returned in no particular order.}
+	
+	\begin{itemize*}
+	\item[] \pseudo{Iterator<T> itr = set.iterator();}
+	\item[] \pseudo{While(itr.hasNext())\{ System.out.println(itr.next()) \}}
+	\end{itemize*}
+	
+\end{itemize*}
+
+\section{HashMap}
+\subsection{Constructors}
+\begin{itemize*}
+	\item \textbf{HashMap}()
+	\item[] \cmnt{// Constructs an empty HashMap with default initial capacity 16 and default load factor 0.75.}
+	
+	\item \textbf{HashMap}(int initialCapacity)
+	\item[] \cmnt{// Constructs a new, empty HashMap with thespecified initial capacity and load factor 0.75.}
+	
+	\item \textbf{HashMap}(int initialCapacity, float loadFactor)
+	\item[] \cmnt{// Constructs a new, empty HashMap with the specified initial capacity and specified load factor.}
+	
+	\item \textbf{HashMap}(Map<? extends K, ? extends V> m)
+	\item[] \cmnt{// Constructs a new HashMap with the same mappings as the specified Map.}
+
+\end{itemize*}
+
+\subsection{Creating a HashMap Instance}
+\begin{itemize*}
+	\item \pseudo{HashMap<Integer, String> hmap = new HashMap<Integer, String>();}
+\end{itemize*}
+
+\subsection{HashMap Methods}
+\begin{itemize*}
+	\item public int \textbf{size}()
+	\item[] \cmnt{// Returns the number of key-value mappings in `this' map.}
+	
+	\item public boolean \textbf{isEmpty}()
+	\item[] \cmnt{// Returns true if `this' map contains no key-value mappings.}
+	
+	\item public V \textbf{get}(Object key)
+	\item[] \cmnt{// Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key. It could also be the case that the mapping of the given key is a null value - in which case, the conatinsKey operation must be used to distinguish.}
+	
+	\item public boolean \textbf{containsKey}(Object key)
+	\item[] \cmnt{// Returns true if this map contains a mapping for the specified key.}
+	
+	\item public V \textbf{put}(K key, V value)
+	\item[] \cmnt{// Associates the specified value with the specified key in `this' map. If the map already contains a mapping for the key, the old value is replaced.}
+	
+	\item public void \textbf{putAll}(Map<? extends K, ? extends V> m)
+	\item[] \cmnt{// Copies all of the mappings from the specified map to this map. These mappings will replace any mappings that this map had for any of the keys currently in the specified map.}
+	
+	\item public V \textbf{remove}(Object key)
+	\item[] \cmnt{// Removes the mapping for the specified key from `this' map if present.}
+	
+	\item public void \textbf{clear}()
+	\item[] \cmnt{// Removes all of the mappings from `this' map.}
+	
+	\item public boolean \textbf{containsValue}(Object value)
+	\item[] \cmnt{// Returns true if `this' map maps one or more keys to the specified value.}
+	
+	\item public Set<K> \textbf{keySet}()
+	\item[] \cmnt{// Returns a Set view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.}
+	
+	\item public Collection<V> \textbf{values}()
+	\item[] \cmnt{// Returns a Collection view of the values contained in `this' map. Changes to the collection are reflected in the map, and vice-versa.}
+	
+	\item public Set<Map.Entry<K, V>> \textbf{entrySet}()
+	\item[] \cmnt{// Returns a Set view of the mappings contained in `this' map. Changes to the map are reflected in the set, and vice-versa.}
+	
+	\item public V \textbf{getOrDefault}(Object key, V defaultValue)
+	\item[] \cmnt{// Returns the value to which the specified key is mapped, or defaultValue if `this' map contains no mapping for the key.}
+
+
+	\item public V \textbf{putIfAbsent}(K key, V value)
+	\item[] \cmnt{// If the specified key is not already associated with a value (or is mapped to null) method associates it with the given value and returns null; else method returns the current value.}
+	
+	\item public boolean \textbf{remove}(Object key, Object value)
+	\item[] \cmnt{// Removes the entry for the specified key only if it is currently mapped to the specified value.}
+	
+	\item public boolean \textbf{replace}(K key, V oldValue, V newValue)
+	\item[] \cmnt{// Replaces the entry for the specified key only if currently mapped to the specified value.}
+	
+	\item public boolean \textbf{replace}(K key, V value)
+	\item[] \cmnt{// Replaces the entry for the specified key only if it is currently mapped to some value.}
+
+	\item public V \textbf{computeIfAbsent}(K key, Function<? super K, ? extends V> mappingFunction)
+	\item[] \cmnt{// If the specified key is not already associated with a value (or is mapped to null), method attempts to compute its value using the given mapping function and enters it into `this' map unless null.}
+	
+	\item public V \textbf{computeIfPresent}(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item[] \cmnt{// If the value for the specified key is present and non-null, method attempts to compute a new mapping given the key and its current mapped value. If the function returns null, mapping is removed. If the function throws an unchecked exception, mapping is unchanged.}
+	
+	\item public V \textbf{compute} (K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item[] \cmnt{// Attempts to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping). For example, to either create or append a String msg to a value mapping: }
+		\begin{itemize*}
+			\item[] \pseudo{map.compute(key, (k, v) -> (v == null) ? msg : v.concat(msg))}
+		\end{itemize*}
+
+	\item public V \textbf{merge}(K key, V value, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item[] \cmnt{// If the specified key is nto already associated with a value or is associated with null, associates it with athe given non-null value. Otherwise, replaces the associated value with the results of the given remapping function, or removes if the result is null. This method may be of use when combining multiple mapped values for a key. For example, to either create or append a String msg to a value mapping: }
+		\begin{itemize*}
+			\item[] \pseudo{ map.merge(key, msg, String::concat)}
+		\end{itemize*}
+	
+	\item public void \textbf{forEach}(BiConsumer<? super K, ? super V> action)
+	\item[] \cmnt{// Performs the given action for each entry in this map until all entries have been processed or the action throws an exception. Unless otherwise specified by the implementing class, actions are performed in the order of entry set iteration (if an iteration order is specified.) Exceptions thrown by the action are relayed to the caller.}
+	
+	\item public void \textbf{replaceAll}(BiFunction<? super K,? super V,? extends V> function)
+	\item[] \cmnt{// Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception. Exceptions thrown by the function are relayed to the caller.}
+	
+	\item public Object \textbf{clone}()
+	\item[] \cmnt{// Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.}
+	
+\end{itemize*}
+
+\section{Hashtable}
+\subsection{Constructors}
+\begin{itemize*}
+	\item \textbf{Hashtable}()
+	\item[] \cmnt{// Constructs an empty Hashtable with default initial capacity 11 and default load factor 0.75.}
+	
+	\item \textbf{Hashtable}(int initialCapacity)
+	\item[] \cmnt{// Constructs a new, empty Hashtable with thespecified initial capacity and load factor 0.75.}
+	
+	\item \textbf{Hashtable}(int initialCapacity, float loadFactor)
+	\item[] \cmnt{// Constructs a new, empty Hashtable with the specified initial capacity and specified load factor.}
+	
+	\item \textbf{Hashtable}(Map<? extends K, ? extends V> t)
+	\item[] \cmnt{// Constructs a new Hashtable with the same mappings as the specified Map.}
+\end{itemize*}
+
+\subsection{Creating a Hashtable Instance}
+\begin{itemize*}
+	\item \pseudo{Hashtable<String, String> hashtable = new Hashtable<String, String>();}
+\end{itemize*}
+
+\subsection{Hashtable Methods} \cmnt{// Also contains implementations of all methods defined in Hashmap Methods.}
+\begin{itemize*}
+	\item public Enumeration<K> \textbf{keys}()
+	\item[] \cmnt{// Returns an enumeration of the values in this hashtable. Us the Enumeration methods on the returned object to fetch the elements sequentially.}
+	
+	\item public Enumeration<V> \textbf{elements}()
+	\item[] \cmnt{// Returns an enumeration of the values in this hashtable. Use the Enumeration methods on the returned object to fetch the elements sequentially.}
+	
+	\item public boolean \textbf{contains}(Object value)
+	\item[] \cmnt{// Tests if some key maps into the specified value in this hashtable. This operation is more expensive than the containsKey method. This is identical in functionality to containsValue (map interface).}
+	
+	\item protected void \textbf{rehash}()
+	\item[] \cmnt{// Increases the capacity of and internally reorganizes this hashtable, in order to accommodate and access its entries more efficiently. This method is called automatically when the number of keys in the hashtable exceeds this hashtable's capacity and load factor.}
+	
+	\item public String \textbf{toString}()
+	\item[] \cmnt{// Returns a string representation of this Hashtable object in the form of a set of entries, enclosed in braces and separated by the ASCII characters ", " (comma and space). Each entry is rendered as the key, an equals sign =, and the associated element, where the toString method is used to convert the key and element to strings.}
+	
+	\item public boolean \textbf{equals}(Object o)
+	\item[] \cmnt{// Compares the specified Object with this Map for equality, as per the definition in the Map interface.}
+	
+	\item public boolean \textbf{hashCode}()
+	\item[] \cmnt{// Returns the hash code value for this Map as per the definition in the Map interface.}
+	
+\end{itemize*}
+
+\section{Interface Enumeration<E>}
+\cmnt{// An object that implements the Enumeration interface generates a series of elements, one at a time. Successive calls to the nextElement method return successive elements of the series. StringTokenizer implements Enumeration. An example for printing all elements of a Vector<E> v:}
+\begin{itemize*}
+	\item \pseudo{for (Enumeration<E> e = v.elements(); e.hasMoreElements();)
+       System.out.println(e.nextElement());}
+\end{itemize*}
+\subsection{Enumeration Methods}
+\begin{itemize*}
+	\item boolean \textbf{hasMoreElements}()
+	\item[] \cmnt{// Tests if this enumeration contains more elements.}
+	
+	\item E \textbf{nextElement}()
+	\item[] \cmnt{// Returns the next element of this enumeration if this enumeration object has at least one more element to provide.}
+\end{itemize*}
+%\item[] \cmnt{// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
