@@ -1,0 +1,248 @@
+\documentclass[12pt, landscape, a4paper]{article}
+
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[top=5mm,bottom=5mm,left=5mm,right=5mm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[no-math]{fontspec}
+\usepackage{titlesec}
+\usepackage[dvipsnames]{xcolor}
+
+\setlist{nolistsep,leftmargin=0.25in, topsep=0pt}
+\setlength\parindent{0pt}
+\newenvironment{itemize*}
+{\begin{itemize}\setlength{\itemsep}{0pt}}{\end{itemize}}
+
+\setmainfont[
+	Ligatures={TeX,Common},
+  	BoldFont={AGaramondPro-Bold},
+	ItalicFont={AGaramondPro-Italic},
+	BoldItalicFont={AGaramondPro-SemiboldItalic}
+]{Adobe Garamond Pro}
+\setsansfont[
+  	Ligatures={TeX,Common},
+  	%Letters=SmallCaps,
+  	%Color=660000
+]{Adobe Garamond Pro}
+
+\definecolor{mygreen}{RGB}{85,107,47}
+\newcommand{\cmnt}[1]{{\addfontfeature{Numbers=OldStyle} \sffamily\footnotesize #1}}
+\newcommand{\pseudo}[1]{{\addfontfeature{Numbers=OldStyle} \footnotesize \texttt{\textcolor{mygreen}{#1}}}}
+%\newcommand{\pseudo}[1]{\textcolor{red}{#1}}
+\titlespacing*{\section}
+{0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
+\titlespacing*{\subsection}
+{0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
+
+\author{Taylor Conners}
+\title{Java Cheat Sheet}
+\begin{document}
+\begin{multicols*}{3}
+
+\section{Strings}
+
+\subsection{Creating a String Instance}
+%\begin{minipage}{\linewidth}
+\begin{itemize}
+	\item String str1 = ``Hello''; \cmnt{// Using literal String}
+	\item str2 = new String(``World''); \cmnt{// Using `new' keyword}
+\end{itemize}
+%\end{minipage}
+
+\subsection{String Methods}
+\begin{itemize*}
+	\item char \textbf{charAt}(int index)
+	\item[] \cmnt{// Returns the character at a specified index. Throws IndexOutOfBoundsException.}
+	
+	\item boolean \textbf{equalsIgnoreCase}(String str)
+	\item[] \cmnt{// Compares the string values (ignoring case) and returns boolean value.}
+	
+	\item boolean \textbf{equals}(Object obj)
+	\item[] \cmnt{// Compares the string object and returns boolean value.}
+	
+	\item int \textbf{compareTo}(String str)
+	\item[] \cmnt{// Compares two strings based upon Unicode value of each character.}
+		\begin{itemize*}
+		\item return 0 if both strings are equal.
+		\item return positive value if calling string is lexicographically greater than the parameterized string.
+		\item return negative value if parameterized string is lexicographically greater than the calling string.
+		\item if used to compare a string where $length \geq 1$ to an empty string, compareTo returns string length.
+		\end{itemize*}
+	
+	\item int \textbf{compareToIgnoreCase}(String str)
+	\item[] \cmnt{// Compares two strings based upon Unicode value of each character \emph{ignoring case}.}
+	
+	\item boolean \textbf{startsWith}(String prefix, int offset)
+	\item[] \cmnt{// Checks whether a substring (starting at offset index) has the supplied prefix.}
+	
+	\item boolean \textbf{startsWith}(String prefix)
+	\item[] \cmnt{// Checks whether a string has the supplied prefix.}
+	
+	\item boolean \textbf{endsWith}(String suffix)
+	\item[] \cmnt{// Checks whether a string has the supplied suffix.}
+	
+	\item int \textbf{hashCode}()
+	\item[] \cmnt{// Returns the hash code of the string.}
+	
+	\item int \textbf{indexOf}(int ch)
+	\item[] \cmnt{// Returns the index of the first occurrence of the character `ch' in the string.}
+	
+	\item int \textbf{indexOf}(int ch, int fromIndex)
+	\item[] \cmnt{// Same as indexOf but starts searching for `ch' at the specified fromIndex.}
+	
+	\item int \textbf{lastIndexOf}(int ch)
+	\item[] \cmnt{// Returns the index of the last occurrence of `ch' in the string}
+	
+	\item int \textbf{lastIndexOf}(int ch, int fromIndex)
+	\item[] \cmnt{// Same as above except beginning seach from `fromIndex'.}
+	
+	\item int \textbf{indexOf}(String str)
+	\item[] \cmnt{// Returns the index (first letter) of the first occurrence of specified substring `str'. If it doesn't exist, it returns $-1$.}
+	
+	\item int \textbf{lastIndexOf}(String str)
+	\item[] \cmnt{// Returns the index (first letter) of the last occurrence of specified substring `str'. If it doesn't exist, it returns $-1$.}
+	
+	\item String \textbf{substring}(int beginIndex)
+	\item[] \cmnt{// Returns the substring starting at `beginIndex' and ending at the end of the string.}
+	
+	\item String \textbf{substring}(int beginIndex, int endIndex)
+	\item[] \cmnt{// Returns the substring starting at `beginIndex' and ending at `endIndex'.}
+	
+	\item String \textbf{concat}(String str)
+	\item[] \cmnt{// Concatenates the specified string `str' at the end of the calling string.}
+	
+	\item String \textbf{replace}(char oldChar, char newChar)
+	\item[] \cmnt{// Returns a new string after where each instance of `oldChar' is replaced by an instance of `newChar'.}
+	
+	\item boolean \textbf{contains}(CharSequence s)
+	\item[] \cmnt{// Checks if the calling string contains the specified sequence of char values. Throws NullPointerException if `s' is null.}
+	
+	\item String \textbf{toUpperCase}(Locale locale)
+	\item[] \cmnt{// Converts the string to upper upper-case using the rules defined by the specified locale.}
+	
+	\item String \textbf{toUpperCase}()
+	\item[] \cmnt{// Same as above and locale = Locale.getDefault().}
+	
+	\item String \textbf{intern}()
+	\item[] \cmnt{// Searches for the specified string in the memory pool and if found returns the reference to it. If the specified string is not found, the method allocates memory space to the specified string and assigns the reference to it. Java automatically interns string literals; this is useful when using `new' keyword to make a string instance}
+		\begin{itemize*}
+		\item[] \pseudo{String str1 = ``New String'';}
+		\item[] \pseudo{String str2 = ``New String'';}
+		\item[] \pseudo{String str3 = new String(``New String'');}
+		\item[] \pseudo{String str4 = new String(``New String'').intern();}
+		
+		\item[] \pseudo{System.out.println("Are str1 and str2 the same: " + (str1 == str2)); // Returns true}
+		\item[] \pseudo{System.out.println("Are str1 and str3 the same: " + (str1 == str3)); // Returns false}
+		\item[] \pseudo{System.out.println("Are str1 and str2 the same: " + (str1 == str4)); // Returns true}
+		\item[] \pseudo{System.out.println("Are str1 and str3 the same: " + (str1 == str3.intern()); // Returns true}
+		
+		\end{itemize*}
+		
+	\item boolean \textbf{isEmpty}()
+	\item[] \cmnt{// Method returns true if the given string has 0 length.}
+	
+	\item public static String \textbf{join}()
+	\item[] \cmnt{// Method joins the given strings using the specified delimiter and returns the concatenated Java String. CHECK AGAIN LATER.}
+	
+	\item String \textbf{replaceFirst}(String regex, String replacement)
+	\item[] \cmnt{// Replaces the first occurrence of substring that fits the given regular expression `regex' with `replacement'.}
+	
+	\item String \textbf{replaceAll}(String regex, String replacement)
+	\item[] \cmnt{// Replaces all occurrences of substrings that fit `regex' with `replacement'.}
+	
+	\item String[] \textbf{split}(String regex, int limit)
+	\item[] \cmnt{// Returns an array of substrings delimited by the given regular expression. `limit' is a result threshold.}
+	
+	\item String[] \textbf{split}(String regex)
+	\item[] \cmnt{// Same as above, but without limit}
+	
+	\item String \textbf{toLowerCase}(Locale locale)
+	\item[] \cmnt{// Converts all of the characters in this String to lower case using the rules of the given Locale.  If `locale' is not specified, method uses Local.getDefault()}
+	
+	\item public static String \textbf{format}(Locale l, String format, Object... args)
+	\item[] \cmnt{// Returns a formatted string using the specified locale, format string, and arguments}
+	
+	\item String \textbf{trim}()
+	\item[] \cmnt{// Returns a copy of the string with the leading and trailing whitespace omitted.}
+	
+	\item char \textbf{toCharArray}()
+	\item[] \cmnt{// Converts this string to a new character array.}
+	
+	\item public static String \textbf{copyValueOf}(char[] data)
+	\item[] \cmnt{// Returns a String that represents the character sequence in the array specified.}
+	
+	\item public static String \textbf{copyValueOf}(char[] data, int offset, int count)
+	\item[] \cmnt{// Returns a String, starting at the initial `offset' index and continuing for `count' characters, that represents the character sequence in the array specified.}
+	
+	\item public void \textbf{getChars}(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+	\item[] \cmnt{// Copies characters from this string into the destination character array.}
+	
+	\item public static String \textbf{valueOf}([argument])
+	\item[] \cmnt{// Returns a string representation of argument, which can be boolean, char, int, long, float, double.}
+	
+	\item boolean \textbf{contentEquals}(StringBuffer sb)
+	\item[] \cmnt{// Argument can also be a CharSequence. Compares `this' string to the specified StringBuffer (or CharSequence). The result is true if and only if this String represents the same sequence of characters as the specified StringBuffer (or CharSequence).}
+	
+	\item boolean \textbf{regionMatches}(int srcoffset, String dest, int destoffset, int len)
+	\item[] \cmnt{// Tests to see if two string regions are equal.}
+	
+	\item boolean \textbf{regionMatches}(boolean ignoreCase, int srcoffset, String dest, int destoffset, int len)
+	\item[] \cmnt{// Tests to see if two string regions are equal ignoring case.}
+	
+	\item byte[] \textbf{getBytes}(String charsetName)
+	\item[] \cmnt{// Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array. Can also take a Charset type argument.}
+	
+	\item byte[] \textbf{getBytes}()
+	\item[] \cmnt{// Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.}
+	
+	\item int \textbf{length}()
+	\item[] \cmnt{// Returns the length of `this' string.}
+	
+	\item boolean \textbf{matches}(String regex)
+	\item[] \cmnt{// Tells whether or not this string matches the given regular expression.}
+	
+	\item int \textbf{codePointAt}(int index)
+	\item[] \cmnt{// Returns the character (Unicode code point) at the specified index.}
+	
+\end{itemize*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols*}
+%\maketitle
+\end{document}
