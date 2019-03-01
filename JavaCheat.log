@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  28 FEB 2019 14:03
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  1 MAR 2019 18:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,14 +596,20 @@ Overfull \hbox (61.23611pt too wide) in paragraph at lines 430--431
 
  []
 
-[4] (./JavaCheat.aux) ) 
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+[]\TU/AdobeGaramondPro(1)/m/n/12 public static byte[] copyOf(byte[] original, i
+nt
+ []
+
+[6] (./JavaCheat.aux) ) 
 Here is how much of TeX's memory you used:
- 14952 strings out of 492933
- 319650 string characters out of 6136537
+ 14955 strings out of 492933
+ 319712 string characters out of 6136537
  454018 words of memory out of 5000000
- 18921 multiletter control sequences out of 15000+600000
+ 18924 multiletter control sequences out of 15000+600000
  535266 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,5n,93p,499b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,5n,93p,661b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on JavaCheat.pdf (4 pages).
+Output written on JavaCheat.pdf (6 pages).

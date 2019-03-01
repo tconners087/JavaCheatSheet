@@ -437,8 +437,189 @@
 	\item E \textbf{nextElement}()
 	\item[] \cmnt{// Returns the next element of this enumeration if this enumeration object has at least one more element to provide.}
 \end{itemize*}
-%\item[] \cmnt{// }
 
+\section{Arrays}
+\subsection{Arrays Methods}
+\subsubsection{Sort}
+\begin{itemize*}
+	\item public static void \textbf{sort}(int[] a)
+	\item[] \cmnt{// Sorts the specified array into ascending numerical order. Dual-Pivot Quicksort - O(nlogn).}
+
+	\item sort(int[] a, int fromIndex, int toIndex)
+	\item \cmnt{// Sorts the specified range of the array into ascending order. The range to be sorted extends from the index fromIndex, inclusive, to the index toIndex, exclusive. If fromIndex == toIndex, the range to be sorted is empty. }
+	
+	\item[] Other overloaded signatures have the same format, but the initial array can be of type:
+		\begin{itemize*}
+			\item long
+			\item short
+			\item char
+			\item byte
+			\item float
+			\item double
+		\end{itemize*}
+		
+	\item public static void \textbf{sort}(Object[] a)
+	\item[] \cmnt{// Sorts the specified array of objects into ascending order, according to the natural ordering of its elements. All elements in the array must implement the Comparable interface. Furthermore, all elements in the array must be mutually comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the array). }
+	
+	\item public static void \textbf{sort}(Object[] a, int fromIndex, int toIndex)
+	\item[] \cmnt{// Same as above except the range to be sorted extends from index fromIndex, inclusive, to index toIndex, exclusive.}
+	
+	\item public static <T> void \textbf{sort}(T[] a, Comparator<? super T> cmp)
+	\item[] \cmnt{// Sorts the specified array of objects according to the order induced by the specified comparator. All elements in the array must be mutually comparable by the specified comparator.}
+	
+	\item public static <T> void \textbf{sort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
+	\item[] \cmnt{// Same as above except the range to be sorted extends from index fromIndex, inclusive, to index toIndex, exclusive.}
+	
+\end{itemize*}
+
+\subsubsection{parallelSort}
+\cmnt{// The sorting algorithm is a parallel sort-merge that breaks the array into sub-arrays that are themselves sorted and then merged. When the sub-array length reaches a minimum granularity, the sub-array is sorted using the appropriate Arrays.sort method. If the length of the specified array is less than the minimum granularity, then it is sorted using the appropriate Arrays.sort method. The algorithm requires a working space no greater than the size of the original array. The ForkJoin common pool is used to execute any parallel tasks.}
+\begin{itemize*}
+	\item public static void \textbf{parallelSort}(byte[] a)
+	\item[] \cmnt{// Sorts the specified array into ascending numerical order.}
+	
+	\item public static void \textbf{parallelSort}(byte[] a, int fromIndex, int toIndex)
+	\item[] \cmnt{// Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index fromIndex, inclusive, to the index toIndex, exclusive. If fromIndex == toIndex, the range to be sorted is empty.}
+	
+	\item[] Other overloaded signatures have the same format, but the initial array can be of type:
+		\begin{itemize*}
+			\item long
+			\item short
+			\item char
+			\item int
+			\item float
+			\item double
+		\end{itemize*}
+	
+	\item public static <T extends Comparable<? super T>> void \textbf{parallelSort}(T[] a)
+	\item[] \cmnt{// Sorts the specified array of objects into ascending order, according to the natural ordering of its elements. All elements in the array must implement the Comparable interface. Furthermore, all elements in the array must be mutually comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the array).  This sort is guaranteed \textit{stable}.}
+	
+	\item public static <T extends Comparable<? super T>> void \textbf{parallelSort}(T[] a, int fromIndex, int toIndex)
+	\item[] \cmnt{// Same as above but extends from index fromIndex (inclusive) to index toIndex (exclusive).}
+	
+	\item public static <T> void \textbf{parallelSort}(T[] a, Comparator<? super T> cmp)
+	\item[] \cmnt{// Sorts the specified array of objects according to the order induced by the specified comparator. All elements in the array must be mutually comparable by the specified comparator (that is, c.compare(e1, e2) must not throw a ClassCastException for any elements e1 and e2 in the array). This sort is guaranteed \textit{stable}.}
+	
+	\item public static <T> void \textbf{parallelSort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
+	\item[] \cmnt{// Sorts the specified range of the specified array of objects according to the order induced by the specified comparator. Follows applicable rules above for appropriate parameters.}
+
+\end{itemize*}
+
+\subsubsection{Parallel Prefix}
+\begin{itemize*}
+	\item public static <T> void \textbf{parallelPrefix}(T[] array, BinaryOperator<T> op)
+	\item[] \cmnt{// Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds [2, 1, 0, 3] and the operation performs addition, then upon return the array holds [2, 3, 3, 6]. Parallel prefix computation is usually more efficient than sequential loops for large arrays.}
+	
+	\item public static <T> void \textbf{parallelPrefix}(T[] array, int fromIndex, int toIndex, BinaryOperator<T> op)
+	
+	\item public static void \textbf{parallelPrefix}(long[] array, LongBinaryOperator op)
+	\item public static void \textbf{parallelPrefix}(long[] array, int fromIndex, int toIndex, LongBinaryOperator op)
+	
+	\item public static void \textbf{parallelPrefix}(double[] array, DoubleBinaryOperator op)
+	\item public static void \textbf{parallelPrefix}(double[] array, int fromIndex, int toIndex, DoubleBinaryOperator op)
+	
+	\item public static void \textbf{parallelPrefix}(int[] array, IntBinaryOperator op)
+	\item public static void \textbf{parallelPrefix}(int[] array, int fromIndex, int toIndex, IntBinaryOperator op)
+\end{itemize*}	
+
+\subsubsection{Binary Search}
+\begin{itemize*}
+	\item public static int \textbf{binarySearch}(long[] a, long key)
+	\item[] \cmnt{// Searches the specified array of longs for the specified value using the binary search algorithm. The array must be sorted (as by the sort(long[]) method) prior to making this call. If it is not sorted, the results are undefined. If the array contains multiple elements with the specified value, there is no guarantee which one will be found.}
+	
+	\item public static int \textbf{binarySearch}(long[] a, int fromIndex, int toIndex, long key)
+	\item[] \cmnt{// Same as above except between fromIndex (inclusive) to toIndex(exclusive). }
+	
+\end{itemize*}
+
+\cmnt{// The above two signatures are overloaded where the first and fourth parameters (the array and the key) can have the following data-types:}
+\begin{itemize*}
+	\item int
+	\item short
+	\item char
+	\item byte
+	\item double
+	\item float
+	\item Object
+\end{itemize*}
+
+\begin{itemize*}
+	\item public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
+	\item[] \cmnt{// Searches the specified array for the specified object using the binary search algorithm. The array must be sorted into ascending order according to the specified comparator (as by the sort(T[], Comparator) method) prior to making this call. If it is not sorted, the results are undefined. If the array contains multiple elements equal to the specified object, there is no guarantee which one will be found.}
+	
+	\item public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
+	\item[] \cmnt{// Searches a range of the specified array for the specified object using the binary search algorithm. The range must be sorted into ascending order according to the specified comparator (as by the sort(T[], int, int, Comparator) method) prior to making this call. If it is not sorted, the results are undefined. If the range contains multiple elements equal to the specified object, there is no guarantee which one will be found.}
+	
+\end{itemize*}
+
+\subsubsection{Equals}
+\begin{itemize*}
+	\item public static boolean \textbf{equals}(long[] a, long[] a2)
+	\item[] \cmnt{// Returns true if the two specified arrays of longs are equal to one another. Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal. In other words, two arrays are equal if they contain the same elements in the same order. Also, two array references are considered equal if both are null.}
+\end{itemize*}
+\cmnt{// The above to signature is overloaded where both parameters can be arrays of type:}
+\begin{itemize*}
+	\item int
+	\item short
+	\item char
+	\item byte
+	\item boolean
+	\item double
+	\item float
+	\item Object
+\end{itemize*}
+
+\subsubsection{Fill}
+\begin{itemize*}
+	\item public static void \textbf{fill}(long[] a, long val)
+	\item[] \cmnt{// Assigns the specified long value to each element of the specified array of longs.}
+	
+	\item public static void \textbf{fill}(long[] a, int fromIndex, int toIndex, long val)
+	\item[] \cmnt{// Assigns the specified long value to each element of the specified range of the specified array of longs. The range to be filled extends from index fromIndex, inclusive, to index toIndex, exclusive. (If fromIndex==toIndex, the range to be filled is empty.)}
+\end{itemize*}
+\cmnt{// The above two signatures are overloaded where the array and the `val' can have the following data-types:}
+\begin{itemize*}
+	\item int
+	\item short
+	\item char
+	\item byte
+	\item boolean
+	\item double
+	\item float
+	\item Object
+\end{itemize*}
+
+\subsubsection{copyOf}
+\begin{itemize*}
+	\item public static <T> T[] \textbf{copyOf}(T[] original, int newLength)
+	\item[] \cmnt{// Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain null. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of exactly the same class as the original array.}
+	
+	\item public static <T,U> T[] \textbf{copyOf}(U[] original, int newLength, Class<? extends T[]> newType)
+	\item[] \cmnt{// Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain null. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of the class newType. U - The class of objects in the original array; T - the class of objects in the returned array.}
+	
+	\item public static byte[] copyOf(byte[] original, int newLength)
+	\item[] \cmnt{// Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain (byte)0. Such indices will exist if and only if the specified length is greater than that of the original array.}
+\end{itemize*}
+
+\cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
+\begin{itemize*}
+	\item int
+	\item byte
+	\item short
+	\item char
+	\item long
+	\item boolean
+	\item double
+	\item float
+\end{itemize*}	
+
+\subsubsection{copyOfRange}
+\begin{itemize*}
+	\item public static <T> T[] copyOfRange(T[] original, int from, int to)
+\end{itemize*}	
+	
+%\item[] \cmnt{// }
+%TODO: Vectors, Arrays, ArrayList, List, StringTokenizer, Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Stacks, Queues, Graphs, Trees, Linked Lists, Recursion
 
 
 
