@@ -27,9 +27,12 @@
 ]{Adobe Garamond Pro}
 
 \definecolor{mygreen}{RGB}{85,107,47}
+\definecolor{myred}{RGB}{128,0,0}
+\definecolor{myblue}{RGB}{75,0,130}
 \newcommand{\cmnt}[1]{{\addfontfeature{Numbers=OldStyle} \sffamily\footnotesize #1}}
 \newcommand{\pseudo}[1]{{\addfontfeature{Numbers=OldStyle} \footnotesize \textcolor{mygreen}{#1}}}
-\newcommand{\ltxt}[1]{{\large \textbf{#1}}}
+\newcommand{\ltxt}[1]{{\large \textcolor{myred}{\textbf{#1}}}}
+\newcommand{\scol}[1]{{\textcolor{myblue}{\section{#1}}}}
 
 \titlespacing*{\section}
 {0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
@@ -43,7 +46,7 @@
 \begin{document}
 \begin{multicols*}{3}
 
-\section{Strings}
+\scol{Strings}
 
 \subsection{Creating a String Instance}
 \begin{itemize}
@@ -101,31 +104,31 @@
 	\item int \ltxt{indexOf}(String str)
 	\item[] \cmnt{// Returns the index (first letter) of the first occurrence of specified substring `str'. If it doesn't exist, it returns $-1$.}
 	
-	\item int \textbf{lastIndexOf}(String str)
+	\item int \ltxt{lastIndexOf}(String str)
 	\item[] \cmnt{// Returns the index (first letter) of the last occurrence of specified substring `str'. If it doesn't exist, it returns $-1$.}
 	
-	\item String \textbf{substring}(int beginIndex)
+	\item String \ltxt{substring}(int beginIndex)
 	\item[] \cmnt{// Returns the substring starting at `beginIndex' and ending at the end of the string.}
 	
-	\item String \textbf{substring}(int beginIndex, int endIndex)
+	\item String \ltxt{substring}(int beginIndex, int endIndex)
 	\item[] \cmnt{// Returns the substring starting at `beginIndex' and ending at `endIndex'.}
 	
-	\item String \textbf{concat}(String str)
+	\item String \ltxt{concat}(String str)
 	\item[] \cmnt{// Concatenates the specified string `str' at the end of the calling string.}
 	
-	\item String \textbf{replace}(char oldChar, char newChar)
+	\item String \ltxt{replace}(char oldChar, char newChar)
 	\item[] \cmnt{// Returns a new string after where each instance of `oldChar' is replaced by an instance of `newChar'.}
 	
-	\item boolean \textbf{contains}(CharSequence s)
+	\item boolean \ltxt{contains}(CharSequence s)
 	\item[] \cmnt{// Checks if the calling string contains the specified sequence of char values. Throws NullPointerException if `s' is null.}
 	
-	\item String \textbf{toUpperCase}(Locale locale)
+	\item String \ltxt{toUpperCase}(Locale locale)
 	\item[] \cmnt{// Converts the string to upper upper-case using the rules defined by the specified locale.}
 	
-	\item String \textbf{toUpperCase}()
+	\item String \ltxt{toUpperCase}()
 	\item[] \cmnt{// Same as above and locale = Locale.getDefault().}
 	
-	\item String \textbf{intern}()
+	\item String \ltxt{intern}()
 	\item[] \cmnt{// Searches for the specified string in the memory pool and if found returns the reference to it. If the specified string is not found, the method allocates memory space to the specified string and assigns the reference to it. Java automatically interns string literals; this is useful when using `new' keyword to make a string instance}
 		\begin{itemize*}
 		\item[] \pseudo{String str1 = ``New String'';}
@@ -140,90 +143,90 @@
 		
 		\end{itemize*}
 		
-	\item boolean \textbf{isEmpty}()
+	\item boolean \ltxt{isEmpty}()
 	\item[] \cmnt{// Method returns true if the given string has 0 length.}
 	
-	\item public static String \textbf{join}()
+	\item public static String \ltxt{join}()
 	\item[] \cmnt{// Method joins the given strings using the specified delimiter and returns the concatenated Java String. CHECK AGAIN LATER.}
 	
-	\item String \textbf{replaceFirst}(String regex, String replacement)
+	\item String \ltxt{replaceFirst}(String regex, String replacement)
 	\item[] \cmnt{// Replaces the first occurrence of substring that fits the given regular expression `regex' with `replacement'.}
 	
-	\item String \textbf{replaceAll}(String regex, String replacement)
+	\item String \ltxt{replaceAll}(String regex, String replacement)
 	\item[] \cmnt{// Replaces all occurrences of substrings that fit `regex' with `replacement'.}
 	
-	\item String[] \textbf{split}(String regex, int limit)
+	\item String[] \ltxt{split}(String regex, int limit)
 	\item[] \cmnt{// Returns an array of substrings delimited by the given regular expression. `limit' is a result threshold.}
 	
-	\item String[] \textbf{split}(String regex)
+	\item String[] \ltxt{split}(String regex)
 	\item[] \cmnt{// Same as above, but without limit}
 	
-	\item String \textbf{toLowerCase}(Locale locale)
+	\item String \ltxt{toLowerCase}(Locale locale)
 	\item[] \cmnt{// Converts all of the characters in this String to lower case using the rules of the given Locale.  If `locale' is not specified, method uses Local.getDefault()}
 	
-	\item public static String \textbf{format}(Locale l, String format, Object... args)
+	\item public static String \ltxt{format}(Locale l, String format, Object... args)
 	\item[] \cmnt{// Returns a formatted string using the specified locale, format string, and arguments}
 	
-	\item String \textbf{trim}()
+	\item String \ltxt{trim}()
 	\item[] \cmnt{// Returns a copy of the string with the leading and trailing whitespace omitted.}
 	
-	\item char \textbf{toCharArray}()
+	\item char \ltxt{toCharArray}()
 	\item[] \cmnt{// Converts this string to a new character array.}
 	
-	\item public static String \textbf{copyValueOf}(char[] data)
+	\item public static String \ltxt{copyValueOf}(char[] data)
 	\item[] \cmnt{// Returns a String that represents the character sequence in the array specified.}
 	
-	\item public static String \textbf{copyValueOf}(char[] data, int offset, int count)
+	\item public static String \ltxt{copyValueOf}(char[] data, int offset, int count)
 	\item[] \cmnt{// Returns a String, starting at the initial `offset' index and continuing for `count' characters, that represents the character sequence in the array specified.}
 	
-	\item public void \textbf{getChars}(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+	\item public void \ltxt{getChars}(int srcBegin, int srcEnd, char[] dst, int dstBegin)
 	\item[] \cmnt{// Copies characters from this string into the destination character array.}
 	
-	\item public static String \textbf{valueOf}([argument])
+	\item public static String \ltxt{valueOf}([argument])
 	\item[] \cmnt{// Returns a string representation of argument, which can be boolean, char, int, long, float, double.}
 	
-	\item boolean \textbf{contentEquals}(StringBuffer sb)
+	\item boolean \ltxt{contentEquals}(StringBuffer sb)
 	\item[] \cmnt{// Argument can also be a CharSequence. Compares `this' string to the specified StringBuffer (or CharSequence). The result is true if and only if this String represents the same sequence of characters as the specified StringBuffer (or CharSequence).}
 	
-	\item boolean \textbf{regionMatches}(int srcoffset, String dest, int destoffset, int len)
+	\item boolean \ltxt{regionMatches}(int srcoffset, String dest, int destoffset, int len)
 	\item[] \cmnt{// Tests to see if two string regions are equal.}
 	
-	\item boolean \textbf{regionMatches}(boolean ignoreCase, int srcoffset, String dest, int destoffset, int len)
+	\item boolean \ltxt{regionMatches}(boolean ignoreCase, int srcoffset, String dest, int destoffset, int len)
 	\item[] \cmnt{// Tests to see if two string regions are equal ignoring case.}
 	
-	\item byte[] \textbf{getBytes}(String charsetName)
+	\item byte[] \ltxt{getBytes}(String charsetName)
 	\item[] \cmnt{// Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array. Can also take a Charset type argument.}
 	
-	\item byte[] \textbf{getBytes}()
+	\item byte[] \ltxt{getBytes}()
 	\item[] \cmnt{// Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.}
 	
-	\item int \textbf{length}()
+	\item int \ltxt{length}()
 	\item[] \cmnt{// Returns the length of `this' string.}
 	
-	\item boolean \textbf{matches}(String regex)
+	\item boolean \ltxt{matches}(String regex)
 	\item[] \cmnt{// Tells whether or not this string matches the given regular expression.}
 	
-	\item int \textbf{codePointAt}(int index)
+	\item int \ltxt{codePointAt}(int index)
 	\item[] \cmnt{// Returns the character (Unicode code point) at the specified index.}
 	
 \end{itemize*}
 
 
-\section{HashSet}
+\scol{HashSet}
 \subsection{Constructors}
 
 \begin{itemize*}
 
-	\item \textbf{HashSet}()
+	\item \ltxt{HashSet}()
 	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has default initial capacity 16 and load factor 0.75.}
 
-	\item \textbf{HashSet}(Collection<? extends E> c)
+	\item \ltxt{HashSet}(Collection<? extends E> c)
 	\item[] \cmnt{// Constructs a new set containing the elements in the specified collection.}
 	
-	\item \textbf{HashSet}(int initialCapacity)
+	\item \ltxt{HashSet}(int initialCapacity)
 	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has specified initial capacity and load factor 0.75.}
 	
-	\item \textbf{HashSet}(int initialCapacity, float loadFactor)
+	\item \ltxt{HashSet}(int initialCapacity, float loadFactor)
 	\item[] \cmnt{// Constructs a new, empty set; the backing HashMap instance has specified initial capacity and specified load factor.}
 
 \end{itemize*}
@@ -242,28 +245,28 @@
 \subsection{HashSet Methods}
 
 \begin{itemize*}
-	\item public boolean \textbf{add}(E e)
+	\item public boolean \ltxt{add}(E e)
 	\item[] \cmnt{// Adds the specified element to the set if it is not already present. If the set already contains the element, the set is unchanged and method returns false.}
 	
-	\item public boolean \textbf{remove}(Object o)
+	\item public boolean \ltxt{remove}(Object o)
 	\item[] \cmnt{// Removes the specified element from the set if it is present. Returns true if the set contained the element and the element was true; else, method returns false.}
 	
-	\item public void \textbf{clear}()
+	\item public void \ltxt{clear}()
 	\item[] \cmnt{// Removes all elements from `this' set. The set will be empty after the call returns.}
 	
-	\item public Object \textbf{clone}()
+	\item public Object \ltxt{clone}()
 	\item[] \cmnt{// Returns a shallow copy of `this' HashSet instance; the elements themselves are not cloned.}
 	
-	\item public boolean \textbf{contains}(Object o)
+	\item public boolean \ltxt{contains}(Object o)
 	\item[] \cmnt{// Returns true if `this' set contains the specified element.}
 	
-	\item public boolean \textbf{isEmpty}()
+	\item public boolean \ltxt{isEmpty}()
 	\item[] \cmnt{// Returns true if `this' set contains no elements.}
 	
-	\item public int \textbf{size}()
+	\item public int \ltxt{size}()
 	\item[] \cmnt{// Returns the number of elements in this set (its cardinality).}
 	
-	\item public Iterator<E> \textbf{iterator}()
+	\item public Iterator<E> \ltxt{iterator}()
 	\item[] \cmnt{// Returns an iterator over the elements in `this' set. The elements are returned in no particular order.}
 	
 	\begin{itemize*}
@@ -273,19 +276,19 @@
 	
 \end{itemize*}
 
-\section{HashMap}
+\scol{HashMap}
 \subsection{Constructors}
 \begin{itemize*}
-	\item \textbf{HashMap}()
+	\item \ltxt{HashMap}()
 	\item[] \cmnt{// Constructs an empty HashMap with default initial capacity 16 and default load factor 0.75.}
 	
-	\item \textbf{HashMap}(int initialCapacity)
+	\item \ltxt{HashMap}(int initialCapacity)
 	\item[] \cmnt{// Constructs a new, empty HashMap with thespecified initial capacity and load factor 0.75.}
 	
-	\item \textbf{HashMap}(int initialCapacity, float loadFactor)
+	\item \ltxt{HashMap}(int initialCapacity, float loadFactor)
 	\item[] \cmnt{// Constructs a new, empty HashMap with the specified initial capacity and specified load factor.}
 	
-	\item \textbf{HashMap}(Map<? extends K, ? extends V> m)
+	\item \ltxt{HashMap}(Map<? extends K, ? extends V> m)
 	\item[] \cmnt{// Constructs a new HashMap with the same mappings as the specified Map.}
 
 \end{itemize*}
@@ -297,100 +300,100 @@
 
 \subsection{HashMap Methods}
 \begin{itemize*}
-	\item public int \textbf{size}()
+	\item public int \ltxt{size}()
 	\item[] \cmnt{// Returns the number of key-value mappings in `this' map.}
 	
-	\item public boolean \textbf{isEmpty}()
+	\item public boolean \ltxt{isEmpty}()
 	\item[] \cmnt{// Returns true if `this' map contains no key-value mappings.}
 	
-	\item public V \textbf{get}(Object key)
+	\item public V \ltxt{get}(Object key)
 	\item[] \cmnt{// Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key. It could also be the case that the mapping of the given key is a null value - in which case, the conatinsKey operation must be used to distinguish.}
 	
-	\item public boolean \textbf{containsKey}(Object key)
+	\item public boolean \ltxt{containsKey}(Object key)
 	\item[] \cmnt{// Returns true if this map contains a mapping for the specified key.}
 	
-	\item public V \textbf{put}(K key, V value)
+	\item public V \ltxt{put}(K key, V value)
 	\item[] \cmnt{// Associates the specified value with the specified key in `this' map. If the map already contains a mapping for the key, the old value is replaced.}
 	
-	\item public void \textbf{putAll}(Map<? extends K, ? extends V> m)
+	\item public void \ltxt{putAll}(Map<? extends K, ? extends V> m)
 	\item[] \cmnt{// Copies all of the mappings from the specified map to this map. These mappings will replace any mappings that this map had for any of the keys currently in the specified map.}
 	
-	\item public V \textbf{remove}(Object key)
+	\item public V \ltxt{remove}(Object key)
 	\item[] \cmnt{// Removes the mapping for the specified key from `this' map if present.}
 	
-	\item public void \textbf{clear}()
+	\item public void \ltxt{clear}()
 	\item[] \cmnt{// Removes all of the mappings from `this' map.}
 	
-	\item public boolean \textbf{containsValue}(Object value)
+	\item public boolean \ltxt{containsValue}(Object value)
 	\item[] \cmnt{// Returns true if `this' map maps one or more keys to the specified value.}
 	
-	\item public Set<K> \textbf{keySet}()
+	\item public Set<K> \ltxt{keySet}()
 	\item[] \cmnt{// Returns a Set view of the keys contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.}
 	
-	\item public Collection<V> \textbf{values}()
+	\item public Collection<V> \ltxt{values}()
 	\item[] \cmnt{// Returns a Collection view of the values contained in `this' map. Changes to the collection are reflected in the map, and vice-versa.}
 	
-	\item public Set<Map.Entry<K, V>> \textbf{entrySet}()
+	\item public Set<Map.Entry<K, V>> \ltxt{entrySet}()
 	\item[] \cmnt{// Returns a Set view of the mappings contained in `this' map. Changes to the map are reflected in the set, and vice-versa.}
 	
-	\item public V \textbf{getOrDefault}(Object key, V defaultValue)
+	\item public V \ltxt{getOrDefault}(Object key, V defaultValue)
 	\item[] \cmnt{// Returns the value to which the specified key is mapped, or defaultValue if `this' map contains no mapping for the key.}
 
 
-	\item public V \textbf{putIfAbsent}(K key, V value)
+	\item public V \ltxt{putIfAbsent}(K key, V value)
 	\item[] \cmnt{// If the specified key is not already associated with a value (or is mapped to null) method associates it with the given value and returns null; else method returns the current value.}
 	
-	\item public boolean \textbf{remove}(Object key, Object value)
+	\item public boolean \ltxt{remove}(Object key, Object value)
 	\item[] \cmnt{// Removes the entry for the specified key only if it is currently mapped to the specified value.}
 	
-	\item public boolean \textbf{replace}(K key, V oldValue, V newValue)
+	\item public boolean \ltxt{replace}(K key, V oldValue, V newValue)
 	\item[] \cmnt{// Replaces the entry for the specified key only if currently mapped to the specified value.}
 	
-	\item public boolean \textbf{replace}(K key, V value)
+	\item public boolean \ltxt{replace}(K key, V value)
 	\item[] \cmnt{// Replaces the entry for the specified key only if it is currently mapped to some value.}
 
-	\item public V \textbf{computeIfAbsent}(K key, Function<? super K, ? extends V> mappingFunction)
+	\item public V \ltxt{computeIfAbsent}(K key, Function<? super K, ? extends V> mappingFunction)
 	\item[] \cmnt{// If the specified key is not already associated with a value (or is mapped to null), method attempts to compute its value using the given mapping function and enters it into `this' map unless null.}
 	
-	\item public V \textbf{computeIfPresent}(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item public V \ltxt{computeIfPresent}(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
 	\item[] \cmnt{// If the value for the specified key is present and non-null, method attempts to compute a new mapping given the key and its current mapped value. If the function returns null, mapping is removed. If the function throws an unchecked exception, mapping is unchanged.}
 	
-	\item public V \textbf{compute} (K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item public V \ltxt{compute} (K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
 	\item[] \cmnt{// Attempts to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping). For example, to either create or append a String msg to a value mapping: }
 		\begin{itemize*}
 			\item[] \pseudo{map.compute(key, (k, v) -> (v == null) ? msg : v.concat(msg))}
 		\end{itemize*}
 
-	\item public V \textbf{merge}(K key, V value, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+	\item public V \ltxt{merge}(K key, V value, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
 	\item[] \cmnt{// If the specified key is nto already associated with a value or is associated with null, associates it with athe given non-null value. Otherwise, replaces the associated value with the results of the given remapping function, or removes if the result is null. This method may be of use when combining multiple mapped values for a key. For example, to either create or append a String msg to a value mapping: }
 		\begin{itemize*}
 			\item[] \pseudo{ map.merge(key, msg, String::concat)}
 		\end{itemize*}
 	
-	\item public void \textbf{forEach}(BiConsumer<? super K, ? super V> action)
+	\item public void \ltxt{forEach}(BiConsumer<? super K, ? super V> action)
 	\item[] \cmnt{// Performs the given action for each entry in this map until all entries have been processed or the action throws an exception. Unless otherwise specified by the implementing class, actions are performed in the order of entry set iteration (if an iteration order is specified.) Exceptions thrown by the action are relayed to the caller.}
 	
-	\item public void \textbf{replaceAll}(BiFunction<? super K,? super V,? extends V> function)
+	\item public void \ltxt{replaceAll}(BiFunction<? super K,? super V,? extends V> function)
 	\item[] \cmnt{// Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception. Exceptions thrown by the function are relayed to the caller.}
 	
-	\item public Object \textbf{clone}()
+	\item public Object \ltxt{clone}()
 	\item[] \cmnt{// Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.}
 	
 \end{itemize*}
 
-\section{Hashtable}
+\scol{Hashtable}
 \subsection{Constructors}
 \begin{itemize*}
-	\item \textbf{Hashtable}()
+	\item \ltxt{Hashtable}()
 	\item[] \cmnt{// Constructs an empty Hashtable with default initial capacity 11 and default load factor 0.75.}
 	
-	\item \textbf{Hashtable}(int initialCapacity)
+	\item \ltxt{Hashtable}(int initialCapacity)
 	\item[] \cmnt{// Constructs a new, empty Hashtable with thespecified initial capacity and load factor 0.75.}
 	
-	\item \textbf{Hashtable}(int initialCapacity, float loadFactor)
+	\item \ltxt{Hashtable}(int initialCapacity, float loadFactor)
 	\item[] \cmnt{// Constructs a new, empty Hashtable with the specified initial capacity and specified load factor.}
 	
-	\item \textbf{Hashtable}(Map<? extends K, ? extends V> t)
+	\item \ltxt{Hashtable}(Map<? extends K, ? extends V> t)
 	\item[] \cmnt{// Constructs a new Hashtable with the same mappings as the specified Map.}
 \end{itemize*}
 
@@ -401,30 +404,30 @@
 
 \subsection{Hashtable Methods} \cmnt{// Also contains implementations of all methods defined in Hashmap Methods.}
 \begin{itemize*}
-	\item public Enumeration<K> \textbf{keys}()
+	\item public Enumeration<K> \ltxt{keys}()
 	\item[] \cmnt{// Returns an enumeration of the values in this hashtable. Us the Enumeration methods on the returned object to fetch the elements sequentially.}
 	
-	\item public Enumeration<V> \textbf{elements}()
+	\item public Enumeration<V> \ltxt{elements}()
 	\item[] \cmnt{// Returns an enumeration of the values in this hashtable. Use the Enumeration methods on the returned object to fetch the elements sequentially.}
 	
-	\item public boolean \textbf{contains}(Object value)
+	\item public boolean \ltxt{contains}(Object value)
 	\item[] \cmnt{// Tests if some key maps into the specified value in this hashtable. This operation is more expensive than the containsKey method. This is identical in functionality to containsValue (map interface).}
 	
-	\item protected void \textbf{rehash}()
+	\item protected void \ltxt{rehash}()
 	\item[] \cmnt{// Increases the capacity of and internally reorganizes this hashtable, in order to accommodate and access its entries more efficiently. This method is called automatically when the number of keys in the hashtable exceeds this hashtable's capacity and load factor.}
 	
-	\item public String \textbf{toString}()
+	\item public String \ltxt{toString}()
 	\item[] \cmnt{// Returns a string representation of this Hashtable object in the form of a set of entries, enclosed in braces and separated by the ASCII characters ", " (comma and space). Each entry is rendered as the key, an equals sign =, and the associated element, where the toString method is used to convert the key and element to strings.}
 	
-	\item public boolean \textbf{equals}(Object o)
+	\item public boolean \ltxt{equals}(Object o)
 	\item[] \cmnt{// Compares the specified Object with this Map for equality, as per the definition in the Map interface.}
 	
-	\item public boolean \textbf{hashCode}()
+	\item public boolean \ltxt{hashCode}()
 	\item[] \cmnt{// Returns the hash code value for this Map as per the definition in the Map interface.}
 	
 \end{itemize*}
 
-\section{Interface Enumeration<E>}
+\scol{Interface Enumeration<E>}
 \cmnt{// An object that implements the Enumeration interface generates a series of elements, one at a time. Successive calls to the nextElement method return successive elements of the series. StringTokenizer implements Enumeration. An example for printing all elements of a Vector<E> v:}
 \begin{itemize*}
 	\item \pseudo{for (Enumeration<E> e = v.elements(); e.hasMoreElements();)
@@ -432,21 +435,21 @@
 \end{itemize*}
 \subsection{Enumeration Methods}
 \begin{itemize*}
-	\item boolean \textbf{hasMoreElements}()
+	\item boolean \ltxt{hasMoreElements}()
 	\item[] \cmnt{// Tests if this enumeration contains more elements.}
 	
-	\item E \textbf{nextElement}()
+	\item E \ltxt{nextElement}()
 	\item[] \cmnt{// Returns the next element of this enumeration if this enumeration object has at least one more element to provide.}
 \end{itemize*}
 
-\section{Arrays}
+\scol{Arrays}
 \subsection{Arrays Methods}
 \subsubsection{Sort}
 \begin{itemize*}
-	\item public static void \textbf{sort}(int[] a)
+	\item public static void \ltxt{sort}(int[] a)
 	\item[] \cmnt{// Sorts the specified array into ascending numerical order. Dual-Pivot Quicksort - O(nlogn).}
 
-	\item sort(int[] a, int fromIndex, int toIndex)
+	\item \ltxt{sort}(int[] a, int fromIndex, int toIndex)
 	\item \cmnt{// Sorts the specified range of the array into ascending order. The range to be sorted extends from the index fromIndex, inclusive, to the index toIndex, exclusive. If fromIndex == toIndex, the range to be sorted is empty. }
 	
 	\item[] Other overloaded signatures have the same format, but the initial array can be of type:
@@ -459,16 +462,16 @@
 			\item double
 		\end{itemize*}
 		
-	\item public static void \textbf{sort}(Object[] a)
+	\item public static void \ltxt{sort}(Object[] a)
 	\item[] \cmnt{// Sorts the specified array of objects into ascending order, according to the natural ordering of its elements. All elements in the array must implement the Comparable interface. Furthermore, all elements in the array must be mutually comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the array). }
 	
-	\item public static void \textbf{sort}(Object[] a, int fromIndex, int toIndex)
+	\item public static void \ltxt{sort}(Object[] a, int fromIndex, int toIndex)
 	\item[] \cmnt{// Same as above except the range to be sorted extends from index fromIndex, inclusive, to index toIndex, exclusive.}
 	
-	\item public static <T> void \textbf{sort}(T[] a, Comparator<? super T> cmp)
+	\item public static <T> void \ltxt{sort}(T[] a, Comparator<? super T> cmp)
 	\item[] \cmnt{// Sorts the specified array of objects according to the order induced by the specified comparator. All elements in the array must be mutually comparable by the specified comparator.}
 	
-	\item public static <T> void \textbf{sort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
+	\item public static <T> void \ltxt{sort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
 	\item[] \cmnt{// Same as above except the range to be sorted extends from index fromIndex, inclusive, to index toIndex, exclusive.}
 	
 \end{itemize*}
@@ -476,10 +479,10 @@
 \subsubsection{parallelSort}
 \cmnt{// The sorting algorithm is a parallel sort-merge that breaks the array into sub-arrays that are themselves sorted and then merged. When the sub-array length reaches a minimum granularity, the sub-array is sorted using the appropriate Arrays.sort method. If the length of the specified array is less than the minimum granularity, then it is sorted using the appropriate Arrays.sort method. The algorithm requires a working space no greater than the size of the original array. The ForkJoin common pool is used to execute any parallel tasks.}
 \begin{itemize*}
-	\item public static void \textbf{parallelSort}(byte[] a)
+	\item public static void \ltxt{parallelSort}(byte[] a)
 	\item[] \cmnt{// Sorts the specified array into ascending numerical order.}
 	
-	\item public static void \textbf{parallelSort}(byte[] a, int fromIndex, int toIndex)
+	\item public static void \ltxt{parallelSort}(byte[] a, int fromIndex, int toIndex)
 	\item[] \cmnt{// Sorts the specified range of the array into ascending numerical order. The range to be sorted extends from the index fromIndex, inclusive, to the index toIndex, exclusive. If fromIndex == toIndex, the range to be sorted is empty.}
 	
 	\item[] Other overloaded signatures have the same format, but the initial array can be of type:
@@ -492,43 +495,43 @@
 			\item double
 		\end{itemize*}
 	
-	\item public static <T extends Comparable<? super T>> void \textbf{parallelSort}(T[] a)
+	\item public static <T extends Comparable<? super T>> void \ltxt{parallelSort}(T[] a)
 	\item[] \cmnt{// Sorts the specified array of objects into ascending order, according to the natural ordering of its elements. All elements in the array must implement the Comparable interface. Furthermore, all elements in the array must be mutually comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the array).  This sort is guaranteed \textit{stable}.}
 	
-	\item public static <T extends Comparable<? super T>> void \textbf{parallelSort}(T[] a, int fromIndex, int toIndex)
+	\item public static <T extends Comparable<? super T>> void \ltxt{parallelSort}(T[] a, int fromIndex, int toIndex)
 	\item[] \cmnt{// Same as above but extends from index fromIndex (inclusive) to index toIndex (exclusive).}
 	
-	\item public static <T> void \textbf{parallelSort}(T[] a, Comparator<? super T> cmp)
+	\item public static <T> void \ltxt{parallelSort}(T[] a, Comparator<? super T> cmp)
 	\item[] \cmnt{// Sorts the specified array of objects according to the order induced by the specified comparator. All elements in the array must be mutually comparable by the specified comparator (that is, c.compare(e1, e2) must not throw a ClassCastException for any elements e1 and e2 in the array). This sort is guaranteed \textit{stable}.}
 	
-	\item public static <T> void \textbf{parallelSort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
+	\item public static <T> void \ltxt{parallelSort}(T[] a, int fromIndex, int toIndex, Comparator<? super T> cmp)
 	\item[] \cmnt{// Sorts the specified range of the specified array of objects according to the order induced by the specified comparator. Follows applicable rules above for appropriate parameters.}
 
 \end{itemize*}
 
 \subsubsection{Parallel Prefix}
 \begin{itemize*}
-	\item public static <T> void \textbf{parallelPrefix}(T[] array, BinaryOperator<T> op)
+	\item public static <T> void \ltxt{parallelPrefix}(T[] array, BinaryOperator<T> op)
 	\item[] \cmnt{// Cumulates, in parallel, each element of the given array in place, using the supplied function. For example if the array initially holds [2, 1, 0, 3] and the operation performs addition, then upon return the array holds [2, 3, 3, 6]. Parallel prefix computation is usually more efficient than sequential loops for large arrays.}
 	
-	\item public static <T> void \textbf{parallelPrefix}(T[] array, int fromIndex, int toIndex, BinaryOperator<T> op)
+	\item public static <T> void \ltxt{parallelPrefix}(T[] array, int fromIndex, int toIndex, BinaryOperator<T> op)
 	
-	\item public static void \textbf{parallelPrefix}(long[] array, LongBinaryOperator op)
-	\item public static void \textbf{parallelPrefix}(long[] array, int fromIndex, int toIndex, LongBinaryOperator op)
+	\item public static void \ltxt{parallelPrefix}(long[] array, LongBinaryOperator op)
+	\item public static void \ltxt{parallelPrefix}(long[] array, int fromIndex, int toIndex, LongBinaryOperator op)
 	
-	\item public static void \textbf{parallelPrefix}(double[] array, DoubleBinaryOperator op)
+	\item public static void \ltxt{parallelPrefix}(double[] array, DoubleBinaryOperator op)
 	\item public static void \textbf{parallelPrefix}(double[] array, int fromIndex, int toIndex, DoubleBinaryOperator op)
 	
-	\item public static void \textbf{parallelPrefix}(int[] array, IntBinaryOperator op)
-	\item public static void \textbf{parallelPrefix}(int[] array, int fromIndex, int toIndex, IntBinaryOperator op)
+	\item public static void \ltxt{parallelPrefix}(int[] array, IntBinaryOperator op)
+	\item public static void \ltxt{parallelPrefix}(int[] array, int fromIndex, int toIndex, IntBinaryOperator op)
 \end{itemize*}	
 
 \subsubsection{Binary Search}
 \begin{itemize*}
-	\item public static int \textbf{binarySearch}(long[] a, long key)
+	\item public static int \ltxt{binarySearch}(long[] a, long key)
 	\item[] \cmnt{// Searches the specified array of longs for the specified value using the binary search algorithm. The array must be sorted (as by the sort(long[]) method) prior to making this call. If it is not sorted, the results are undefined. If the array contains multiple elements with the specified value, there is no guarantee which one will be found.}
 	
-	\item public static int \textbf{binarySearch}(long[] a, int fromIndex, int toIndex, long key)
+	\item public static int \ltxt{binarySearch}(long[] a, int fromIndex, int toIndex, long key)
 	\item[] \cmnt{// Same as above except between fromIndex (inclusive) to toIndex(exclusive). }
 	\item[]\cmnt{// The above two signatures are overloaded where the first and fourth parameters (the array and the key) can have the following data-types:}
 \begin{itemize*}
@@ -546,17 +549,17 @@
 
 
 \begin{itemize*}
-	\item public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
+	\item public static <T> int \ltxt{binarySearch}(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
 	\item[] \cmnt{// Searches the specified array for the specified object using the binary search algorithm. The array must be sorted into ascending order according to the specified comparator (as by the sort(T[], Comparator) method) prior to making this call. If it is not sorted, the results are undefined. If the array contains multiple elements equal to the specified object, there is no guarantee which one will be found.}
 	
-	\item public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
+	\item public static <T> int \ltxt{binarySearch}(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
 	\item[] \cmnt{// Searches a range of the specified array for the specified object using the binary search algorithm. The range must be sorted into ascending order according to the specified comparator (as by the sort(T[], int, int, Comparator) method) prior to making this call. If it is not sorted, the results are undefined. If the range contains multiple elements equal to the specified object, there is no guarantee which one will be found.}
 	
 \end{itemize*}
 
 \subsubsection{Equals}
 \begin{itemize*}
-	\item public static boolean \textbf{equals}(long[] a, long[] a2)
+	\item public static boolean \ltxt{equals}(long[] a, long[] a2)
 	\item[] \cmnt{// Returns true if the two specified arrays of longs are equal to one another. Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal. In other words, two arrays are equal if they contain the same elements in the same order. Also, two array references are considered equal if both are null.}
 	\item[]\cmnt{// The above to signature is overloaded where both parameters can be arrays of type:}
 \begin{itemize*}
@@ -574,10 +577,10 @@
 
 \subsubsection{Fill}
 \begin{itemize*}
-	\item public static void \textbf{fill}(long[] a, long val)
+	\item public static void \ltxt{fill}(long[] a, long val)
 	\item[] \cmnt{// Assigns the specified long value to each element of the specified array of longs.}
 	
-	\item public static void \textbf{fill}(long[] a, int fromIndex, int toIndex, long val)
+	\item public static void \ltxt{fill}(long[] a, int fromIndex, int toIndex, long val)
 	\item[] \cmnt{// Assigns the specified long value to each element of the specified range of the specified array of longs. The range to be filled extends from index fromIndex, inclusive, to index toIndex, exclusive. (If fromIndex==toIndex, the range to be filled is empty.)}
 	\item[]\cmnt{// The above two signatures are overloaded where the array and the `val' can have the following data-types:}
 \begin{itemize*}
@@ -595,13 +598,13 @@
 
 \subsubsection{copyOf}
 \begin{itemize*}
-	\item public static <T> T[] \textbf{copyOf}(T[] original, int newLength)
+	\item public static <T> T[] \ltxt{copyOf}(T[] original, int newLength)
 	\item[] \cmnt{// Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain null. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of exactly the same class as the original array.}
 	
-	\item public static <T,U> T[] \textbf{copyOf}(U[] original, int newLength, Class<? extends T[]> newType)
+	\item public static <T,U> T[] \ltxt{copyOf}(U[] original, int newLength, Class<? extends T[]> newType)
 	\item[] \cmnt{// Copies the specified array, truncating or padding with nulls (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain null. Such indices will exist if and only if the specified length is greater than that of the original array. The resulting array is of the class newType. U - The class of objects in the original array; T - the class of objects in the returned array.}
 	
-	\item public static byte[] copyOf(byte[] original, int newLength)
+	\item public static byte[] \ltxt{copyOf}(byte[] original, int newLength)
 	\item[] \cmnt{// Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain (byte)0. Such indices will exist if and only if the specified length is greater than that of the original array.}
 	\item[] \cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
 \begin{itemize*}
@@ -620,13 +623,13 @@
 
 \subsubsection{copyOfRange}
 \begin{itemize*}
-	\item public static <T> T[] copyOfRange(T[] original, int from, int to)
+	\item public static <T> T[] \ltxt{copyOfRange}(T[] original, int from, int to)
 	\item[] \cmnt{// Copies the specified range of the specified array into a new array. The initial index of the range (from) must lie between zero and original.length, inclusive. The value at original[from] is placed into the initial element of the copy (unless from == original.length or from == to). Values from subsequent elements in the original array are placed into subsequent elements in the copy. The final index of the range (to), which must be greater than or equal to from, may be greater than original.length, in which case null is placed in all elements of the copy whose index is greater than or equal to original.length - from. The length of the returned array will be to - from. }
 	
-	\item public static <T, U> T[] copyOfRange(U[] original, int from, int to, Class<? extends T[]> newType)
+	\item public static <T, U> T[] \ltxt{copyOfRange}(U[] original, int from, int to, Class<? extends T[]> newType)
 	\item[] \cmnt{// Same as above except that the resulting array is of the class newType.}
 	
-	\item public static byte[] copyOfRange(byte[] original, int from, int to)
+	\item public static byte[] \ltxt{copyOfRange}(byte[] original, int from, int to)
 	\item[] \cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
 \begin{itemize*}
 	\item int
@@ -642,7 +645,7 @@
 
 \subsubsection{asList}
 \begin{itemize*}	
-	\item public static <T> List<T> \textbf{asList}(T... a)
+	\item public static <T> List<T> \ltxt{asList}(T... a)
 	\item[] \cmnt{// Returns a fixed-size list backed by the specified array. (Changes to the returned list "write through" to the array.) This method acts as bridge between array-based and collection-based APIs, in combination with Collection.toArray(). The returned list is serializable and implements RandomAccess. }
 	\item[] A convenient way to create a fixed-size list initialized to contain several elements:
 	\item[] \pseudo{List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");}
@@ -650,7 +653,7 @@
 
 \subsubsection{hashCode}
 \begin{itemize*}
-	\item public static int \textbf{hashCode}(long[] a)
+	\item public static int \ltxt{hashCode}(long[] a)
 	\item[] \cmnt{// Returns a hash code based on the contents of the specified array.  For any two long arrays a and b such that Arrays.equals(a, b), it is also the case that Arrays.hashCode(a) == Arrays.hashCode(b). The value returned by this method is the same value that would be obtained by invoking the hashCode method on a List containing a sequence of Long instances representing the elements of a in the same order. If a is null, this method returns 0.}
 	\item[] \cmnt{// The above signature always returns int, but the type of array passed can be:}
 	\begin{itemize*}
@@ -668,19 +671,19 @@
 
 \subsubsection{deepHashCode}
 \begin{itemize*}
-	\item public static int \textbf{deepHashCode}(Object[] a)
+	\item public static int \ltxt{deepHashCode}(Object[] a)
 	\item[] \cmnt{// Returns a hash code based on the "deep contents" of the specified array. If the array contains other arrays as elements, the hash code is based on their contents and so on, ad infinitum. It is therefore unacceptable to invoke this method on an array that contains itself as an element, either directly or indirectly through one or more levels of arrays. The behavior of such an invocation is undefined. }
 \end{itemize*}
 
 \subsubsection{deepEquals}
 \begin{itemize*}
-	\item public static boolean \textbf{deepEquals}(Object[] a1, Object[] a2)
+	\item public static boolean \ltxt{deepEquals}(Object[] a1, Object[] a2)
 	\item[] \cmnt{// Returns true if the two specified arrays are deeply equal to one another. Unlike the equals(Object[],Object[]) method, this method is appropriate for use with nested arrays of arbitrary depth. Two array references are considered deeply equal if both are null, or if they refer to arrays that contain the same number of elements and all corresponding pairs of elements in the two arrays are deeply equal. }
 \end{itemize*}
 
 \subsubsection{toString}
 \begin{itemize*}
-	\item public static String \textbf{toString}(long[] a)
+	\item public static String \ltxt{toString}(long[] a)
 	\item[] \cmnt{// Returns a string representation of the contents of the specified array. The string representation consists of a list of the array's elements, enclosed in square brackets ("[]"). Adjacent elements are separated by the characters ", " (a comma followed by a space). Elements are converted to strings as by String.valueOf(long). Returns "null" if a is null.}
 	\item[] \cmnt{// The above signature always returns String, but the type of array passed can be:}
 	\begin{itemize*}
@@ -698,501 +701,509 @@
 
 \subsubsection{deepToString}
 \begin{itemize*}
-	\item public static String \textbf{deepToString}(Object[] a)
+	\item public static String \ltxt{deepToString}(Object[] a)
 	\item[] \cmnt{// Returns a string representation of the "deep contents" of the specified array. If the array contains other arrays as elements, the string representation contains their contents and so on. This method is designed for converting multidimensional arrays to strings. To avoid infinite recursion, if the specified array contains itself as an element, or contains an indirect reference to itself through one or more levels of arrays, the self-reference is converted to the string "[...]". For example, an array containing only a reference to itself would be rendered as "[[...]]". }
 \end{itemize*}
 
-\section{Vector}
+\scol{Vector}
 \cmnt{Roughly equivalent to an ArrayList, except Vectors are synchronized.}
 \subsection{Constructors}
 \begin{itemize*}
-	\item public \textbf{Vector}()
+	\item public \ltxt{Vector}()
 	\item[] \cmnt{// Constructs an empty vector so that its internal data array has size 10 and its standard capacity increment is zero.}
 	
-	\item public \textbf{Vector}(int initialCapacity)
+	\item public \ltxt{Vector}(int initialCapacity)
 	\cmnt{// Constructs an empty vector with the specified initial capacity and with its capacity increment equal to zero.}
 	
-	\item public \textbf{Vector}(int initialCapacity, int capacityIncrement)
+	\item public \ltxt{Vector}(int initialCapacity, int capacityIncrement)
 	\item[] \cmnt{// Constructs an empty vector with the specified initial capacity and capacity increment.}
 	
-	\item public \textbf{Vector}(Collection<? extends E> c)
+	\item public \ltxt{Vector}(Collection<? extends E> c)
 	\item[] \cmnt{// Constructs a vector containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
 \end{itemize*}
 
 \subsection{Vector Methods}
 \begin{itemize*}
-	\item public void \textbf{copyInto}(Object[] anArray)
+	\item public void \ltxt{copyInto}(Object[] anArray)
 	\item[] \cmnt{// Copies the components of this vector into the specified array. The item at index k in this vector is copied into component k of anArray.}
 	
-	\item public void \textbf{trimToSize}()
+	\item public void \ltxt{trimToSize}()
 	\item[] \cmnt{// Trims the capacity of this vector to be the vector's current size. If the capacity of this vector is larger than its current size, then the capacity is changed to equal the size by replacing its internal data array, kept in the field elementData, with a smaller one. An application can use this operation to minimize the storage of a vector.}
 	
-	\item public void \textbf{ensureCapacity}(int minCapacity)
+	\item public void \ltxt{ensureCapacity}(int minCapacity)
 	\item[] \cmnt{// Increases the capacity of this vector, if necessary, to ensure that it can hold at least the number of components specified by the minimum capacity argument. }
 	
-	\item public void \textbf{setSize}(int newSize)
+	\item public void \ltxt{setSize}(int newSize)
 	\item[] \cmnt{// Sets the size of this vector. If the new size is greater than the current size, new null items are added to the end of the vector. If the new size is less than the current size, all components at index newSize and greater are discarded.}
 	
-	\item public int \textbf{capacity}()
+	\item public int \ltxt{capacity}()
 	\item[] \cmnt{// Returns the current capacity of this vector.}
 	
-	\item public int \textbf{size}()
+	\item public int \ltxt{size}()
 	\item[] \cmnt{// Returns the number of components in this vector.}
 	
-	\item public boolean \textbf{isEmpty}()
+	\item public boolean \ltxt{isEmpty}()
 	\item[] \cmnt{// Tests if this vector has no components.}
 	
-	\item public Enumeration<E> \textbf{elements}()
+	\item public Enumeration<E> \ltxt{elements}()
 	\item[] \cmnt{// Returns an enumeration of the components of this vector. The returned Enumeration object will generate all items in this vector. The first item generated is the item at index 0, then the item at index 1, and so on.}
 	
-	\item public boolean \textbf{contains}(Object o)
+	\item public boolean \ltxt{contains}(Object o)
 	\item[] \cmnt{// Returns true if this vector contains the specified element. More formally, returns true if and only if this vector contains at least one element e such that (o==null ? e==null : o.equals(e)).}
 	
-	\item public int \textbf{indexOf}(Object o)
+	\item public int \ltxt{indexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this vector, or -1 if this vector does not contain the element. More formally, returns the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))), or -1 if there is no such index.}
 	
-	\item public int \textbf{indexOf}(Object o, int index)
+	\item public int \ltxt{indexOf}(Object o, int index)
 	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this vector, searching forwards from index, or returns -1 if the element is not found.}
 	
-	\item public int \textbf{lastIndexOf}(Object o)
+	\item public int \ltxt{lastIndexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this vector, or -1 if this vector does not contain the element. More formally, returns the highest index i such that (o==null ? get(i)==null : o.equals(get(i))), or -1 if there is no such index.}
 	
-	\item public int \textbf{lastIndexOf}(Object o, int index)
+	\item public int \ltxt{lastIndexOf}(Object o, int index)
 	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this vector, searching backwards from index, or returns -1 if the element is not found.}
 	
-	\item public E \textbf{elementAt}(int index)
+	\item public E \ltxt{elementAt}(int index)
 	\item[] \cmnt{// Returns the component at the specified index. Identical in function to List interface's get(int) method.}
 	
-	\item public E \textbf{firstElement}()
+	\item public E \ltxt{firstElement}()
 	\item[] \cmnt{// Returns the first component (the item at index 0) of this vector.}
 	
-	\item public E \textbf{lastElement}()
+	\item public E \ltxt{lastElement}()
 	\item[] \cmnt{// Returns the last component of the vector.}
 	
-	\item public void \textbf{setElementAt}(E obj, int index)
+	\item public void \ltxt{setElementAt}(E obj, int index)
 	\item[] \cmnt{// Sets the component at the specified index of this vector to be the specified object. The previous component at that position is discarded. }
 	
-	\item public void \textbf{removeElementAt}(int index)
+	\item public void \ltxt{removeElementAt}(int index)
 	\item[] \cmnt{// Deletes the component at the specified index. Each component in this vector with an index greater or equal to the specified index is shifted downward to have an index one smaller than the value it had previously. The size of this vector is decreased by 1. Identical in function to List interface's remove(int) method, except that returns the old value at specified position.}
 	
-	\item public void \textbf{insertElementAt}(E obj, int index)
+	\item public void \ltxt{insertElementAt}(E obj, int index)
 	\item[] \cmnt{// Inserts the specified object as a component in this vector at the specified index. Each component in this vector with an index greater or equal to the specified index is shifted upward to have an index one greater than the value it had previously. Identical in function to List interface's add(int, E), except add reverses the order of parameters.}
 	
-	\item public void \textbf{addElement}(E obj)
+	\item public void \ltxt{addElement}(E obj)
 	\item[] \cmnt{// Adds the specified component to the end of this vector, increasing its size by one. The capacity of this vector is increased if its size becomes greater than its capacity. This method is identical in functionality to the add(E) method (which is part of the List interface).}
 	
-	\item public boolean \textbf{removeElement}(Object obj)
+	\item public boolean \ltxt{removeElement}(Object obj)
 	\item[] \cmnt{// Removes the first (lowest-indexed) occurrence of the argument from this vector. If the object is found in this vector, each component in the vector with an index greater or equal to the object's index is shifted downward to have an index one smaller than the value it had previously. This method is identical in functionality to the remove(Object) method (which is part of the List interface).}
 	
-	\item public Object \textbf{clone}()
+	\item public Object \ltxt{clone}()
 	\item[] \cmnt{// Returns a clone of this vector. The copy will contain a reference to a clone of the internal data array, not a reference to the original internal data array of this Vector object.}
 	
-	\item public Object[] \textbf{toArray}()
+	\item public Object[] \ltxt{toArray}()
 	\item[] \cmnt{// Returns an array containing all of the elements in this Vector in the correct order.}
 	
-	\item public <T> T[] \textbf{toArray}(T[] a)
+	\item public <T> T[] \ltxt{toArray}(T[] a)
 	\item[] \cmnt{// Returns an array containing all of the elements in this Vector in the correct order; the runtime type of the returned array is that of the specified array. If the Vector fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this Vector. }
 	
-	\item public E \textbf{get}(int index)
+	\item public E \ltxt{get}(int index)
 	\item[] \cmnt{// Returns the element at the specified position in this Vector.}
 	
-	\item public E \textbf{set}(int index, E element)
+	\item public E \ltxt{set}(int index, E element)
 	\item[] \cmnt{// Replaces the element at the specified position in this Vector with the specified element.}
 	
-	\item public boolean \textbf{add}(E e)
+	\item public boolean \ltxt{add}(E e)
 	\item[] \cmnt{// Appends the specified element to the end of this Vector.}
 	
-	\item public boolean \textbf{remove}(Object o)
+	\item public boolean \ltxt{remove}(Object o)
 	\item[] \cmnt{// Removes the first occurrence of the specified element in this Vector If the Vector does not contain the element, it is unchanged. More formally, removes the element with the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if such an element exists).}
 	
-	\item public void \textbf{add}(int index, E element)
+	\item public void \ltxt{add}(int index, E element)
 	\item[] \cmnt{// Inserts the specified element at the specified position in this Vector. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
 	
-	\item public E \textbf{remove}(int index)
+	\item public E \ltxt{remove}(int index)
 	\item[] \cmnt{// Removes the element at the specified position in this Vector. Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the Vector.}
 	
-	\item public void \textbf{clear}()
+	\item public void \ltxt{clear}()
 	\item[] \cmnt{// Removes all of the elements from this Vector. The Vector will be empty after this call returns (unless it throws an exception).}
 	
-	\item public boolean \textbf{containsAll}(Collection<?> c)
+	\item public boolean \ltxt{containsAll}(Collection<?> c)
 	\item[] \cmnt{// Returns true if this Vector contains all of the elements in the specified Collection.}
 	
-	\item public boolean \textbf{addAll}(Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(Collection<? extends E> c)
 	\item[] \cmnt{// Appends all of the elements in the specified Collection to the end of this Vector, in the order that they are returned by the specified Collection's Iterator. The behavior of this operation is undefined if the specified Collection is modified while the operation is in progress. (This implies that the behavior of this call is undefined if the specified Collection is this Vector, and this Vector is nonempty.)}
 	
-	\item public boolean \textbf{removeAll}(Collection<?> c)
+	\item public boolean \ltxt{removeAll}(Collection<?> c)
 	\item[] \cmnt{// Removes from this Vector all of its elements that are contained in the specified Collection.}
 	
-	\item public boolean \textbf{retainAll}(Collection<?> c)
+	\item public boolean \ltxt{retainAll}(Collection<?> c)
 	\item[] \cmnt{// Retains only the elements in this Vector that are contained in the specified Collection. In other words, removes from this Vector all of its elements that are not contained in the specified Collection.}
 	
-	\item public boolean \textbf{addAll}(int index, Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(int index, Collection<? extends E> c)
 	\item[] \cmnt{// Inserts all of the elements in the specified Collection into this Vector at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices).}
 	
-	\item public boolean \textbf{equals}(Object o)
+	\item public boolean \ltxt{equals}(Object o)
 	\item[] \cmnt{// Compares the specified Object with this Vector for equality. Returns true if and only if the specified Object is also a List, both Lists have the same size, and all corresponding pairs of elements in the two Lists are equal.}
 	
-	\item public int \textbf{hashCode}()
+	\item public int \ltxt{hashCode}()
 	\item[] \cmnt{// Returns the hash code value for this Vector.}
 	
-	\item public String \textbf{toString}()
+	\item public String \ltxt{toString}()
 	\item[] \cmnt{// Returns a string representation of this Vector, containing the String representation of each element.}
 	
-	\item public List<E> \textbf{subList}(int fromIndex, int toIndex)
+	\item public List<E> \ltxt{subList}(int fromIndex, int toIndex)
 	\item[] \cmnt{// Returns a view of the portion of this List between fromIndex, inclusive, and toIndex, exclusive. (If fromIndex and toIndex are equal, the returned List is empty.) The returned List is backed by this List, so changes in the returned List are reflected in this List, and vice-versa. The returned List supports all of the optional List operations supported by this List. }
 	
-	\item protected void \textbf{removeRange}(int fromIndex, int toIndex)
+	\item protected void \ltxt{removeRange}(int fromIndex, int toIndex)
 	\item[] \cmnt{// Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive. Shifts any succeeding elements to the left (reduces their index). This call shortens the list by (toIndex - fromIndex) elements. (If toIndex==fromIndex, this operation has no effect.)}
 	
-	\item public ListIterator<E> \textbf{listIterator}(int index)
+	\item public ListIterator<E> \ltxt{listIterator}(int index)
 	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list. The specified index indicates the first element that would be returned by an initial call to next. An initial call to previous would return the element with the specified index minus one. }
 	
-	\item public ListIterator<E> \textbf{listIterator}()
+	\item public ListIterator<E> \ltxt{listIterator}()
 	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence). }
 	
-	\item public Iterator<E> \textbf{iterator}()
+	\item public Iterator<E> \ltxt{iterator}()
 	\item[] \cmnt{// Returns an iterator over the elements in this list in proper sequence. }
 	
-	\item public void \textbf{forEach}(Consumer<? super E> action)
+	\item public void \ltxt{forEach}(Consumer<? super E> action)
 	\item[] \cmnt{// Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception. Unless otherwise specified by the implementing class, actions are performed in the order of iteration (if an iteration order is specified). Exceptions thrown by the action are relayed to the caller.}
 	
-	\item public boolean \textbf{removeIf}(Predicate<? super E> filter)
+	\item public boolean \ltxt{removeIf}(Predicate<? super E> filter)
 	\item[] \cmnt{// Removes all of the elements of this collection that satisfy the given predicate. Errors or runtime exceptions thrown during iteration or by the predicate are relayed to the caller.}
 	
-	\item public void \textbf{replaceAll}(UnaryOperator<E> operator)
+	\item public void \ltxt{replaceAll}(UnaryOperator<E> operator)
 	\item[] \cmnt{// Replaces each element of this list with the result of applying the operator to that element. Errors or runtime exceptions thrown by the operator are relayed to the caller.}
 	
-	\item public void \textbf{sort}(Comparator<? super E> c)
+	\item public void \ltxt{sort}(Comparator<? super E> c)
 	\item[] \cmnt{// Sorts this list according to the order induced by the specified Comparator. If the specified comparator is null then all elements in this list must implement the Comparable interface and the elements' natural ordering should be used. }
 	
-	\item public Spliterator<E> \textbf{spliterator}()
+	\item public Spliterator<E> \ltxt{spliterator}()
 	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this list. }
 \end{itemize*}
 
-\section{ArrayList}
+\scol{ArrayList}
 \cmnt{Roughly equivalent to a Vector, except an ArrayList is unsynchronized}
 \subsection{Constructors}
 \begin{itemize*}
-	\item public \textbf{ArrayList}()
+	\item public \ltxt{ArrayList}()
 	\item[] \cmnt{// Constructs an empty list with an initial capacity of ten.}
 	
-	\item public \textbf{ArrayList}(int initialCapacity)
+	\item public \ltxt{ArrayList}(int initialCapacity)
 	\item[] \cmnt{// Constructs an empty list with the specified initial capacity.}
 	
-	\item public \textbf{ArrayList}(Collection<? extends E> c)
+	\item public \ltxt{ArrayList}(Collection<? extends E> c)
 	\item[] \cmnt{// Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
 \end{itemize*}
 
 \subsection{ArrayList Methods}
 \begin{itemize*}
-	\item public void \textbf{trimToSize}()
+	\item public void \ltxt{trimToSize}()
 	\item[] \cmnt{// Trims the capacity of this ArrayList instance to be the list's current size. }
 	
-	\item public void \textbf{ensureCapacity}(int minCapacity)
+	\item public void \ltxt{ensureCapacity}(int minCapacity)
 	\item[] \cmnt{// Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.}
 	
-	\item public int \textbf{size}()
+	\item public int \ltxt{size}()
 	\item[] \cmnt{//Returns the number of elements in this list. }
 	
-	\item public boolean isEmpty()
+	\item public boolean \ltxt{isEmpty}()
 	\item[] \cmnt{// Returns true if this list contains no elements.}
 	
-	\item public boolean contains(Object o)
+	\item public boolean \ltxt{contains}(Object o)
 	\item[] \cmnt{// Returns true if this list contains the specified element.}
 	
-	\item public int indexOf(Object o)
+	\item public int \ltxt{indexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.}
 	
-	\item public int lastIndexOf(Object o)
+	\item public int \ltxt{lastIndexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.}
 	
-	\item public Object clone()
+	\item public Object \ltxt{clone}()
 	\item[] \cmnt{// Returns a shallow copy of this ArrayList instance.}
 	
-	\item public Object[] toArray()
+	\item public Object[] \ltxt{toArray}()
 	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element). }
 	
-	\item public <T> T[] toArray(T[] a)
+	\item public <T> T[] \ltxt{toArray}(T[] a)
 	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.}
 	
-	\item public E get(int index)
+	\item public E \ltxt{get}(int index)
 	\item[] \cmnt{// Returns the element at the specified position in this list.}
 	
-	\item public E set(int index, E element)
+	\item public E \ltxt{set}(int index, E element)
 	\item[] \cmnt{// Replaces the element at the specified position in this list with the specified element.}
 	
-	\item public boolean add(E e)
+	\item public boolean \ltxt{add}(E e)
 	\item[] \cmnt{// Appends the specified element to the end of this list.}
 	
-	\item public void add(int index, E element)
+	\item public void \ltxt{add}(int index, E element)
 	\item[] \cmnt{// Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
 	
-	\item public E remove(int index)
+	\item public E \ltxt{remove}(int index)
 	\item[] \cmnt{// Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices).}
 	
-	\item public boolean remove(Object o)
+	\item public boolean \ltxt{remove}(Object o)
 	\item[] \cmnt{// Removes the first occurrence of the specified element from this list, if it is present.}
 	
-	\item public void clear()
+	\item public void \ltxt{clear}()
 	\item[] \cmnt{// Removes all of the elements from this list. The list will be empty after this call returns.}
 	
-	\item public boolean addAll(Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(Collection<? extends E> c)
 	\item[] \cmnt{// Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator. The behavior of this operation is undefined if the specified collection is modified while the operation is in progress. (This implies that the behavior of this call is undefined if the specified collection is this list, and this list is nonempty.)}
 	
-	\item public boolean addAll(int index, Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(int index, Collection<? extends E> c)
 	\item[] \cmnt{//Inserts all of the elements in the specified collection into this list, starting at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices).}
 	
-	\item protected void removeRange(int fromIndex, int toIndex)
+	\item protected void \ltxt{removeRange}(int fromIndex, int toIndex)
 	\item[] \cmnt{// Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive. Shifts any succeeding elements to the left (reduces their index).}
 	
-	\item public boolean removeAll(Collection<?> c)
+	\item public boolean \ltxt{removeAll}(Collection<?> c)
 	\item[] \cmnt{// Removes from this list all of its elements that are contained in the specified collection.}
 	
-	\item public boolean retainAll(Collection<?> c)
+	\item public boolean \ltxt{retainAll}(Collection<?> c)
 	\item[] \cmnt{// Retains only the elements in this list that are contained in the specified collection.}
 	
-	\item public ListIterator<E> listIterator(int index)
+	\item public ListIterator<E> \ltxt{listIterator}(int index)
 	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list. The specified index indicates the first element that would be returned by an initial call to next. An initial call to previous would return the element with the specified index minus one.}
 	
-	\item public ListIterator<E> listIterator()
+	\item public ListIterator<E> \ltxt{listIterator}()
 	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence). }
 	
-	\item public Iterator<E> iterator()
+	\item public Iterator<E> \ltxt{iterator}()
 	\item[] \cmnt{// Returns an iterator over the elements in this list in proper sequence. }
 	
-	\item public List<E> subList(int fromIndex, int toIndex)
+	\item public List<E> \ltxt{subList}(int fromIndex, int toIndex)
 	\item[] \cmnt{// Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive. (If fromIndex and toIndex are equal, the returned list is empty.) The returned list is backed by this list, so non-structural changes in the returned list are reflected in this list, and vice-versa. The returned list supports all of the optional list operations. }
 	
-	\item public void forEach(Consumer<? super E> action)
+	\item public void \ltxt{forEach}(Consumer<? super E> action)
 	\item[] \cmnt{// Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.}
 	
-	\item public Spliterator<E> spliterator()
+	\item public Spliterator<E> \ltxt{spliterator}()
 	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this list. }
 	
-	\item public boolean removeIf(Predicate<? super E> filter)
+	\item public boolean \ltxt{removeIf}(Predicate<? super E> filter)
 	\item[] \cmnt{// Removes all of the elements of this collection that satisfy the given predicate.}
 	
-	\item public void replaceAll(UnaryOperator<E> operator)
+	\item public void \ltxt{replaceAll}(UnaryOperator<E> operator)
 	\item[] \cmnt{// Replaces each element of this list with the result of applying the operator to that element.}
 	
-	\item public void sort(Comparator<? super E> c)
+	\item public void \ltxt{sort}(Comparator<? super E> c)
 	\item[] \cmnt{// Sorts this list according to the order induced by the specified Comparator. }
 \end{itemize*}
 
-\section{LinkedList}
+\scol{LinkedList}
 \subsection{Constructors}
 \begin{itemize*}
-	\item public LinkedList()
+	\item public \ltxt{LinkedList}()
 	\item[] \cmnt{// Constructs an empty list.}
-	\item public LinkedList(Collection<? extends E> c)
+	\item public \ltxt{LinkedList}(Collection<? extends E> c)
 	\item[] \cmnt{// Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
 \end{itemize*}
 
 \subsection{LinkedList Methods}
 \begin{itemize*}
-	\item public E getFirst()
+	\item public E \ltxt{getFirst}()
 	\item[] \cmnt{// Returns the first element in this list.}
-	\item public E getLast()
+	\item public E \ltxt{getLast}()
 	\item[] \cmnt{// Returns the last element in this list.}
-	\item public E removeFirst()
+	\item public E \ltxt{removeFirst}()
 	\item[] \cmnt{// Removes and returns the first element from this list.}
-	\item public E removeLast()
+	\item public E \ltxt{removeLast}()
 	\item[] \cmnt{// Removes and returns the last element from this list.}
-	\item public void addFirst(E e)
+	\item public void \ltxt{addFirst}(E e)
 	\item[] \cmnt{// Inserts the specified element at the beginning of this list.}
-	\item public void addLast(E e)
+	\item public void \ltxt{addLast}(E e)
 	\item[] \cmnt{// Appends the specified element to the end of this list. }
-	\item public boolean contains(Object o)
+	\item public boolean \ltxt{contains}(Object o)
 	\item[] \cmnt{//Returns true if this list contains the specified element. }
-	\item public int size()
+	\item public int \ltxt{size}()
 	\item[] \cmnt{// Returns the number of elements in this list.}
-	\item public boolean add(E e)
+	\item public boolean \ltxt{add}(E e)
 	\item[] \cmnt{// Appends the specified element to the end of this list. }
-	\item public boolean remove(Object o)
+	\item public boolean \ltxt{remove}(Object o)
 	\item[] \cmnt{// Removes the first occurrence of the specified element from this list, if it is present. If this list does not contain the element, it is unchanged.}
-	\item public boolean addAll(Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(Collection<? extends E> c)
 	\item[] \cmnt{// Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator. }
-	\item public boolean addAll(int index, Collection<? extends E> c)
+	\item public boolean \ltxt{addAll}(int index, Collection<? extends E> c)
 	\item[] \cmnt{// Inserts all of the elements in the specified collection into this list, starting at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices). }
-	\item public void clear()
+	\item public void \ltxt{clear}()
 	\item[] \cmnt{// Removes all of the elements from this list. The list will be empty after this call returns.}
-	\item public E get(int index)
+	\item public E \ltxt{get}(int index)
 	\item[] \cmnt{// Returns the element at the specified position in this list.}
-	\item public E set(int index, E element)
+	\item public E \ltxt{set}(int index, E element)
 	\item[] \cmnt{// Replaces the element at the specified position in this list with the specified element.}
-	\item public void add(int index, E element)
+	\item public void \ltxt{add}(int index, E element)
 	\item[] \cmnt{// Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
-	\item public E remove(int index)
+	\item public E \ltxt{remove}(int index)
 	\item[] \cmnt{// Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the list.}
-	\item public int indexOf(Object o)
+	\item public int \ltxt{indexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.}
-	\item public int lastIndexOf(Object o)
+	\item public int \ltxt{lastIndexOf}(Object o)
 	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.}
-	\item public E peek()
+	\item public E \ltxt{peek}()
 	\item[] \cmnt{// Retrieves, but does not remove, the head (first element) of this list.}
-	\item public E element()
+	\item public E \ltxt{element}()
 	\item[] \cmnt{// Retrieves, but does not remove, the head (first element) of this list.}
-	\item public E poll()
+	\item public E \ltxt{poll}()
 	\item[] \cmnt{// Retrieves and removes the head (first element) of this list.}
-	\item public E remove()
+	\item public E \ltxt{remove}()
 	\item[] \cmnt{// Retrieves and removes the head (first element) of this list.}
-	\item public boolean offer(E e)
+	\item public boolean \ltxt{offer}(E e)
 	\item[] \cmnt{// Adds the specified element as the tail (last element) of this list.}
-	\item public boolean offerFirst(E e)
+	\item public boolean \ltxt{offerFirst}(E e)
 	\item[] \cmnt{// Inserts the specified element at the front of this list.}
-	\item public E peekFirst()
+	\item public E \ltxt{peekFirst}()
 	\item[] \cmnt{// Retrieves, but does not remove, the first element of this list, or returns null if this list is empty.}
-	\item public E peekLast()
+	\item public E \ltxt{peekLast}()
 	\item[] \cmnt{// Retrieves, but does not remove, the last element of this list, or returns null if this list is empty.}
-	\item public E pollFirst()
+	\item public E \ltxt{pollFirst}()
 	\item[] \cmnt{// Retrieves and removes the first element of this list, or returns null if this list is empty.}
-	\item public E pollLast()
+	\item public E \ltxt{pollLast}()
 	\item[] \cmnt{// Retrieves and removes the last element of this list, or returns null if this list is empty.}
-	\item public void push(E e)
+	\item public void \ltxt{push}(E e)
 	\item[] \cmnt{// Pushes an element onto the stack represented by this list. In other words, inserts the element at the front of this list. }
-	\item public E pop()
+	\item public E \ltxt{pop}()
 	\item[] \cmnt{// Pops an element from the stack represented by this list. In other words, removes and returns the first element of this list. }
-	\item public boolean removeFirstOccurrence(Object o)
+	\item public boolean \ltxt{removeFirstOccurrence}(Object o)
 	\item[] \cmnt{// Removes the last occurrence of the specified element in this list (when traversing the list from head to tail). If the list does not contain the element, it is unchanged.}
-	\item public ListIterator<E> listIterator(int index)
+	\item public ListIterator<E> \ltxt{listIterator}(int index)
 	\item[] \cmnt{// Returns a list-iterator of the elements in this list (in proper sequence), starting at the specified position in the list. Obeys the general contract of List.listIterator(int).}
-	\item public Iterator<E> descendingIterator()
+	\item public Iterator<E> \ltxt{descendingIterator}()
 	\item[] \cmnt{// Returns an iterator over the elements in this deque in reverse sequential order.}
-	\item public Object clone()
+	\item public Object \ltxt{clone}()
 	\item[] \cmnt{// Returns a shallow copy of this LinkedList.}
-	\item public Object[] toArray()
+	\item public Object[] \ltxt{toArray}()
 	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element). }
-	\item public <T> T[] toArray(T[] a)
+	\item public <T> T[] \ltxt{toArray}(T[] a)
 	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.}
 \end{itemize*}
 
-\section{StringBuffer / StringBuilder}
+\scol{StringBuffer / StringBuilder}
 \cmnt{StringBuffer and StringBuilder are both mutable classes with the same general purpose; however, StringBuffer is thread safe and synchronized while StringBuilder is not. Included here is StringBuffer constructors and methods, but StringBuilder is the same, except for the different return type on some methods.}
 \subsection{Constructors}
 \begin{itemize*}
-	\item public StringBuffer()
+	\item public \ltxt{StringBuffer}()
 	\item[] \cmnt{// Constructs a string buffer with no characters in it and an initial capacity of 16 characters.}
-	\item public StringBuffer(int capacity)
+	\item public \ltxt{StringBuffer}(int capacity)
 	\item[] \cmnt{// Constructs a string buffer with no characters in it and the specified initial capacity.}
-	\item public StringBuffer(String str)
+	\item public \ltxt{StringBuffer}(String str)
 	\item[] \cmnt{// Constructs a string buffer initialized to the contents of the specified string. The initial capacity of the string buffer is 16 plus the length of the string argument.}
-	\item public StringBuffer(CharSequence seq)
+	\item public \ltxt{StringBuffer}(CharSequence seq)
 	\item[] \cmnt{// Constructs a string buffer that contains the same characters as the specified CharSequence. The initial capacity of the string buffer is 16 plus the length of the CharSequence argument. If the length of the specified CharSequence is less than or equal to zero, then an empty buffer of capacity 16 is returned.}
 \end{itemize*}
 \subsection{StringBuffer Methods}
 \begin{itemize*}
-	\item public int length()
+	\item public int \ltxt{length}()
 	\item[] \cmnt{// Returns the length (character count).}
-	\item public int capacity()
+	\item public int \ltxt{capacity}()
 	\item[] \cmnt{// Returns the current capacity. The capacity is the amount of storage available for newly inserted characters, beyond which an allocation will occur.}
-	\item public void ensureCapacity(int minimumCapacity)
+	\item public void \ltxt{ensureCapacity}(int minimumCapacity)
 	\item[] \cmnt{// Ensures that the capacity is at least equal to the specified minimum. If the current capacity is less than the argument, then a new internal array is allocated with greater capacity. The new capacity is the larger of minimumCapacity or twice the old capacity + 2. If the minimumCapacity argument is nonpositive, this method takes no action and simply returns.}
-	\item public void trimToSize()
+	\item public void \ltxt{trimToSize}()
 	\item[] \cmnt{// Attempts to reduce storage used for the character sequence. If the buffer is larger than necessary to hold its current sequence of characters, then it may be resized to become more space efficient.}
-	\item public void setLength(int newLength)
+	\item public void \ltxt{setLength}(int newLength)
 	\item[] \cmnt{// Sets the length of the character sequence. The sequence is changed to a new character sequence whose length is specified by the argument. Unspecified characters are `$\ $u0000'.}
-	\item public char charAt(int index)
+	\item public char \ltxt{charAt}(int index)
 	\item[] \cmnt{// Returns the char value in this sequence at the specified index.}
-	\item public int codePointAt(int index)
+	\item public int \ltxt{codePointAt}(int index)
 	\item[] \cmnt{// Returns the character (Unicode code point) at the specified index. The index refers to char values (Unicode code units) and ranges from 0 to length() - 1. }
-	\item public int codePointBefore(int index)
+	\item public int \ltxt{codePointBefore}(int index)
 	\item[] \cmnt{// Returns the character (Unicode code point) before the specified index. The index refers to char values (Unicode code units) and ranges from 1 to length(). }
-	\item public int codePointCount(int beginIndex, int endIndex)
+	\item public int \ltxt{codePointCount}(int beginIndex, int endIndex)
 	\item[] \cmnt{// Returns the number of Unicode code points in the specified text range of this sequence.}
-	\item public int offsetByCodePoints(int index, int codePointOffset)
+	\item public int \ltxt{offsetByCodePoints}(int index, int codePointOffset)
 	\item[] \cmnt{// Returns the index within this sequence that is offset from the given index by codePointOffset code points. Unpaired surrogates within the text range given by index and codePointOffset count as one code point each.}
-	\item public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+	\item public void \ltxt{getChars}(int srcBegin, int srcEnd, char[] dst, int dstBegin)
 	\item[] \cmnt{// Characters are copied from this sequence into the destination character array dst. The first character to be copied is at index srcBegin; the last character to be copied is at index srcEnd-1. The total number of characters to be copied is srcEnd-srcBegin. The characters are copied into the subarray of dst starting at index dstBegin and ending at index: $dstbegin + (srcEnd-srcBegin) - 1$}
-	\item public void setCharAt(int index, char ch)
+	\item public void \ltxt{setCharAt}(int index, char ch)
 	\item[] \cmnt{// The character at the specified index is set to ch.}
-	\item public StringBuffer append(Object obj)
+	\item public StringBuffer \ltxt{append}(Object obj)
 	\item[] \cmnt{// Appends the string representation of the Object argument. The overall effect is exactly as if the argument were converted to a string by the method String.valueOf(Object), and the characters of that string were then appended to this character sequence.}
-	\item public StringBuffer append(String str)
+	\item public StringBuffer \ltxt{append}(String str)
 	\item[] \cmnt{// Appends the specified string to this character sequence. The characters of the String argument are appended, in order, increasing the length of this sequence by the length of the argument. If str is null, then the four characters "null" are appended. }
-	\item public StringBuffer append(StringBuffer sb)
+	\item public StringBuffer \ltxt{append}(StringBuffer sb)
 	\item[] \cmnt{// Appends the specified StringBuffer to this sequence. Same null behavior as above.}
-	\item public StringBuffer append(CharSequence s)
+	\item public StringBuffer \ltxt{append}(CharSequence s)
 	\item[] \cmnt{// Appends the specified CharSequence to this sequence. The characters of the CharSequence argument are appended, in order, increasing the length of this sequence by the length of the argument. The result of this method is exactly the same as if it were an invocation of this.append(s, 0, s.length()); This method synchronizes on this (the destination) object but does not synchronize on the source (s). Same null behavior as above.}
-	\item public StringBuffer append(CharSequence s, int start, int end)
+	\item public StringBuffer \ltxt{append}(CharSequence s, int start, int end)
 	\item[] \cmnt{// Same as above but for a subsequence of the CharSequence.}
-	\item public StringBuffer append(char[] str)
+	\item public StringBuffer \ltxt{append}(char[] str)
 	\item[] \cmnt{// Appends the string representation of the char array argument to this sequence. }
-	\item public StringBuffer append(char[] str, int offset, int len)
+	\item public StringBuffer \ltxt{append}(char[] str, int offset, int len)
 	\item[] \cmnt{// Same as above but for a subsequence of the char array.}
-	\item public StringBuffer append(boolean b)
+	\item public StringBuffer \ltxt{append}(boolean b)
 	\item[] \cmnt{// Appends the string representation of the boolean argument to the sequence. }
-	\item public StringBuffer append(char c)
+	\item public StringBuffer \ltxt{append}(char c)
 	\item[] \cmnt{// Appends the string representation of the char argument to this sequence. }
-	\item public StringBuffer append(int i)
+	\item public StringBuffer \ltxt{append}(int i)
 	\item[] \cmnt{// Appends the string representation of the int argument to this sequence. }
-	\item public StringBuffer appendCodePoint(int codePoint)
+	\item public StringBuffer \ltxt{appendCodePoint}(int codePoint)
 	\item[] \cmnt{// Appends the string representation of the codePoint argument to this sequence. }
-	\item public StringBuffer append(long lng)
+	\item public StringBuffer \ltxt{append}(long lng)
 	\item[] \cmnt{// Appends the string representation of the long argument to this sequence. }
-	\item public StringBuffer append(float f)
+	\item public StringBuffer \ltxt{append}(float f)
 	\item[] \cmnt{// Appends the string representation of the float argument to this sequence. }
-	\item public StringBuffer append(double d)
+	\item public StringBuffer \ltxt{append}(double d)
 	\item[] \cmnt{// Appends the string representation of the double argument to this sequence. }
-	\item public StringBuffer delete(int start, int end)
+	\item public StringBuffer \ltxt{delete}(int start, int end)
 	\item[] \cmnt{// Removes the characters in a substring of this sequence. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. If start is equal to end, no changes are made.}
-	\item public StringBuffer deleteCharAt(int index)
+	\item public StringBuffer \ltxt{deleteCharAt}(int index)
 	\item[] \cmnt{// Removes the char at the specified position in this sequence. }
-	\item public StringBuffer replace(int start, int end, String str)
+	\item public StringBuffer \ltxt{replace}(int start, int end, String str)
 	\item[] \cmnt{// Replaces the characters in a substring of this sequence with characters in the specified String. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. First the characters in the substring are removed and then the specified String is inserted at start. (This sequence will be lengthened to accommodate the specified String if necessary.)}
-	\item public String substring(int start)
+	\item public String \ltxt{substring}(int start)
 	\item[] \cmnt{// Returns a new String that contains a subsequence of characters currently contained in this character sequence. The substring begins at the specified index and extends to the end of this sequence.}
-	\item public CharSequence subSequence(int start, int end)
+	\item public CharSequence \ltxt{subSequence}(int start, int end)
 	\item[] \cmnt{// Returns a new character sequence that is a subsequence of this sequence. }
-	\item public String substring(int start, int end)
+	\item public String \ltxt{substring}(int start, int end)
 	\item[] \cmnt{// Returns a new String that contains a subsequence of characters currently contained in this sequence. The substring begins at the specified start and extends to the character at index end - 1.}
-	\item public StringBuffer insert(int index, char[] str, int offset, int len)
+	\item public StringBuffer \ltxt{insert}(int index, char[] str, int offset, int len)
 	\item[] \cmnt{// Inserts the string representation of a subarray of the str array argument into this sequence. }
-	\item public StringBuffer insert(int offset, Object obj)
+	\item public StringBuffer \ltxt{insert}(int offset, Object obj)
 	\item[] \cmnt{// Inserts the string representation of the Object argument into this character sequence.}
-	\item public StringBuffer insert(int offset, String str)
+	\item public StringBuffer \ltxt{insert}(int offset, String str)
 	\item[] \cmnt{// Inserts the string into this character sequence. }
-	\item public StringBuffer insert(int offset, char[] str)
+	\item public StringBuffer \ltxt{insert}(int offset, char[] str)
 	\item[] \cmnt{// Inserts the string representation of the char array argument into this sequence. }
-	\item public StringBuffer insert(int dstOffset, CharSequence s)
+	\item public StringBuffer \ltxt{insert}(int dstOffset, CharSequence s)
 	\item[] \cmnt{// Inserts the specified CharSequence into this sequence. }
-	\item public StringBuffer insert(int dstOffset, CharSequence s, int start, int end)
+	\item public StringBuffer \ltxt{insert}(int dstOffset, CharSequence s, int start, int end)
 	\item[] \cmnt{// Inserts a subsequence of the specified CharSequence into this sequence. }
-	\item public StringBuffer insert(int offset, boolean b)
+	\item public StringBuffer \ltxt{insert}(int offset, boolean b)
 	\item[] \cmnt{// Inserts the string representation of the boolean argument into this sequence. }
-	\item public StringBuffer insert(int offset, char c)
+	\item public StringBuffer \ltxt{insert}(int offset, char c)
 	\item[] \cmnt{// Inserts the string representation of the char argument into this sequence. }
-	\item public StringBuffer insert(int offset, int i)
+	\item public StringBuffer \ltxt{insert}(int offset, int i)
 	\item[] \cmnt{// Inserts the string representation of the second int argument into this sequence. }
-	\item public StringBuffer insert(int offset, long l)
+	\item public StringBuffer \ltxt{insert}(int offset, long l)
 	\item[] \cmnt{// Inserts the string representation of the long argument into this sequence. }
-	\item public StringBuffer insert(int offset, float f)
+	\item public StringBuffer \ltxt{insert}(int offset, float f)
 	\item[] \cmnt{// Inserts the string representation of the float argument into this sequence. }
-	\item public StringBuffer insert(int offset, double d)
+	\item public StringBuffer \ltxt{insert}(int offset, double d)
 	\item[] \cmnt{// Inserts the string representation of the double argument into this sequence. }
-	\item public int indexOf(String str)
+	
+	\item public int \ltxt{indexOf}(String str)
 	\item[] \cmnt{// Returns the index within this string of the first occurrence of the specified substring. The integer returned is the smallest value k such that: this.toString().startsWith(str, k) }
-	\item public int indexOf(String str, int fromIndex)
+	
+	\item public int \ltxt{indexOf}(String str, int fromIndex)
 	\item[] \cmnt{// Returns the index within this string of the first occurrence of the specified substring, starting at the specified index. The integer returned is the smallest value k for which: k >= Math.min(fromIndex, this.length()) \&\& this.toString().startsWith(str, k). If no such value of k exists, then -1 is returned.}
-	\item public int lastIndexOf(String str)
+	
+	\item public int \ltxt{lastIndexOf}(String str)
 	\item[] \cmnt{// Returns the index within this string of the rightmost occurrence of the specified substring. The rightmost empty string "" is considered to occur at the index value this.length().}
-	\item public int lastIndexOf(String str, int fromIndex)
+	
+	\item public int \ltxt{lastIndexOf}(String str, int fromIndex)
 	\item[] \cmnt{// Returns the index within this string of the last occurrence of the specified substring.}
-	\item public StringBuffer reverse()
+	
+	\item public StringBuffer \ltxt{reverse}()
 	\item[] \cmnt{// Causes this character sequence to be replaced by the reverse of the sequence. If there are any surrogate pairs included in the sequence, these are treated as single characters for the reverse operation.}
-	\item public String toString()
+	
+	\item public String \ltxt{toString}()
 	\item[] \cmnt{// Returns a string representing the data in this sequence.}
 	
 \end{itemize*}
 
-\section{ArrayDeque}
+\scol{ArrayDeque}
 \cmnt{Can be used as a Stack or a Queue.}
 \subsection{Constructors}
 \begin{itemize*}
-	\item public ArrayDeque()
+	\item public \ltxt{ArrayDeque}()
 	\item[] \cmnt{// Constructs an empty array deque with an initial capacity sufficient to hold 16 elements.}
-	\item public ArrayDeque(int numElements)
+	
+	\item public \ltxt{ArrayDeque}(int numElements)
 	\item[] \cmnt{// Constructs an empty array deque with an initial capacity sufficient to hold the specified number of elements.}
-	\item public ArrayDeque(Collection<? extends E> c)
+	
+	\item public \ltxt{ArrayDeque}(Collection<? extends E> c)
 	\item[] \cmnt{// Constructs a deque containing the elements of the specified collection, in the order they are returned by the collection's iterator. (The first element returned by the collection's iterator becomes the first element, or front of the deque.)}
 \end{itemize*}
 
@@ -1203,123 +1214,107 @@
 
 \subsection{ArrayDeque Methods}
 \begin{itemize*}
-	\item public void addFirst(E e)
+	\item public void \ltxt{addFirst}(E e)
  	\item[] \cmnt{// Inserts the specified element at the front of this deque.}
- 	\item public void addLast(E e)
+ 	
+ 	\item public void \ltxt{addLast}(E e)
  	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to add(E).}
- 	\item public boolean offerFirst(E e)
+ 	
+ 	\item public boolean \ltxt{offerFirst}(E e)
  	\item[] \cmnt{// Inserts the specified element at the front of this deque.}
- 	\item public boolean offerLast(E e)
+ 	
+ 	\item public boolean \ltxt{offerLast}(E e)
  	\item[] \cmnt{// Inserts the specified element at the end of this deque.}
- 	\item public E removeFirst()
+ 	
+ 	\item public E \ltxt{removeFirst}()
  	\item[] \cmnt{// Retrieves and removes the first element of this deque. This method differs from pollFirst only in that it throws an exception if this deque is empty.}
- 	\item public E removeLast()
+ 	
+ 	\item public E \ltxt{removeLast}()
  	\item[] \cmnt{// Retrieves and removes the last element of this deque. This method differs from pollLast only in that it throws an exception if this deque is empty.}
- 	\item public E pollFirst()
+ 	\item public E \ltxt{pollFirst}()
  	\item[] \cmnt{// Retrieves and removes the first element of this deque, or returns null if this deque is empty.}
- 	\item public E pollLast()
+ 	
+ 	\item public E \ltxt{pollLast}()
  	\item[] \cmnt{// Retrieves and removes the last element of this deque, or returns null if this deque is empty.}
- 	\item public E getFirst()
+ 	
+ 	\item public E \ltxt{getFirst}()
  	\item[] \cmnt{// Retrieves, but does not remove, the first element of this deque. This method differs from peekFirst only in that it throws an exception if this deque is empty.}
- 	\item public E getLast()
+ 	
+ 	\item public E \ltxt{getLast}()
  	\item[] \cmnt{// Retrieves, but does not remove, the last element of this deque. This method differs from peekLast only in that it throws an exception if this deque is empty.}
- 	\item public E peekFirst()
+ 	
+ 	\item public E \ltxt{peekFirst}()
  	\item[] \cmnt{// Retrieves, but does not remove, the first element of this deque, or returns null if this deque is empty.}
- 	\item public E peekLast()
+ 	
+ 	\item public E \ltxt{peekLast}()
  	\item[] \cmnt{// Retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.}
- 	\item public boolean removeFirstOccurrence(Object o)
+ 	
+ 	\item public boolean \ltxt{removeFirstOccurrence}(Object o)
  	\item[] \cmnt{// Removes the first occurrence of the specified element in this deque (when traversing the deque from head to tail). If the deque does not contain the element, it is unchanged. More formally, removes the first element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call).}
- 	\item public boolean removeLastOccurrence(Object o)
+ 	
+ 	\item public boolean \ltxt{removeLastOccurrence}(Object o)
  	\item[] \cmnt{// Removes the last occurrence of the specified element in this deque (when traversing the deque from head to tail). If the deque does not contain the element, it is unchanged. More formally, removes the last element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call).}
- 	\item public boolean add(E e)
+ 	
+ 	\item public boolean \ltxt{add}(E e)
  	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to addLast(E).}
- 	\item public boolean offer(E e)
+ 	
+ 	\item public boolean \ltxt{offer}(E e)
  	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to offerLast(E).}
-	\item public E remove()
+ 	
+	\item public E \ltxt{remove}()
  	\item[] \cmnt{// Retrieves and removes the head of the queue represented by this deque. This method differs from poll only in that it throws an exception if this deque is empty. This method is equivalent to removeFirst().}
- 	\item public E poll()
+ 	
+ 	\item public E \ltxt{poll}()
  	\item[] \cmnt{// Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty. This method is equivalent to pollFirst().}
- 	\item public E element()
+ 	
+ 	\item public E \ltxt{element}()
  	\item[] \cmnt{// Retrieves, but does not remove, the head of the queue represented by this deque. This method differs from peek only in that it throws an exception if this deque is empty. This method is equivalent to getFirst().}
- 	\item public E peek()
+ 	
+ 	\item public E \ltxt{peek}()
  	\item[] \cmnt{// Retrieves, but does not remove, the head of the queue represented by this deque, or returns null if this deque is empty. This method is equivalent to peekFirst().}
- 	\item public void push(E e)
+ 	
+ 	\item public void \ltxt{push}(E e)
  	\item[] \cmnt{// Pushes an element onto the stack represented by this deque. In other words, inserts the element at the front of this deque. This method is equivalent to addFirst(E).}
- 	\item public E pop()
+ 	
+ 	\item public E \ltxt{pop}()
  	\item[] \cmnt{// Pops an element from the stack represented by this deque. In other words, removes and returns the first element of this deque. This method is equivalent to removeFirst().}
- 	\item public int size()
+ 	
+ 	\item public int \ltxt{size}()
  	\item[] \cmnt{// Returns the number of elements in this deque.}
- 	\item public boolean isEmpty()
+ 	
+ 	\item public boolean \ltxt{isEmpty}()
  	\item[] \cmnt{// Returns true if this deque contains no elements.}
- 	\item public Iterator<E> iterator()
+ 	
+ 	\item public Iterator<E> \ltxt{iterator}()
  	\item[] \cmnt{// Returns an iterator over the elements in this deque. The elements will be ordered from first (head) to last (tail). This is the same order that elements would be dequeued (via successive calls to remove() or popped (via successive calls to pop()).}
- 	\item public Iterator<E> descendingIterator()
+ 	
+ 	\item public Iterator<E> \ltxt{descendingIterator}()
  	\item[] \cmnt{// Returns an iterator over the elements in this deque in reverse sequential order. The elements will be returned in order from last (tail) to first (head).}
- 	\item public boolean contains(Object o)
+ 	
+ 	\item public boolean \ltxt{contains}(Object o)
  	\item[] \cmnt{// Returns true if this deque contains the specified element. More formally, returns true if and only if this deque contains at least one element e such that o.equals(e).}
- 	\item public boolean remove(Object o)
+ 	
+ 	\item public boolean \ltxt{remove}(Object o)
  	\item[] \cmnt{// Removes a single instance of the specified element from this deque. If the deque does not contain the element, it is unchanged. More formally, removes the first element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call). This method is equivalent to removeFirstOccurrence(Object).}
- 	\item public void clear()
+ 	
+ 	\item public void \ltxt{clear}()
  	\item[] \cmnt{// Removes all of the elements from this deque. The deque will be empty after this call returns.}
- 	\item public Object[] toArray()
+ 	
+ 	\item public Object[] \ltxt{toArray}()
  	\item[] \cmnt{// Returns an array containing all of the elements in this deque in proper sequence (from first to last element). The returned array will be "safe" in that no references to it are maintained by this deque. (In other words, this method must allocate a new array). The caller is thus free to modify the returned array. This method acts as bridge between array-based and collection-based APIs.}
- 	\item public <T> T[] toArray(T[] a)
+ 	
+ 	\item public <T> T[] \ltxt{toArray}(T[] a)
  	\item[] \cmnt{// Returns an array containing all of the elements in this deque in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array. If the deque fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this deque. If this deque fits in the specified array with room to spare (i.e., the array has more elements than this deque), the element in the array immediately following the end of the deque is set to null. Like the toArray() method, this method acts as bridge between array-based and collection-based APIs. Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs. }
  	\item[] \cmnt{// Suppose x is a deque known to contain only strings. The following code can be used to dump the deque into a newly allocated array of String: String[] y = x.toArray(new String[0]); Note that toArray(new Object[0]) is identical in function to toArray().}
- 	\item public ArrayDeque<E> clone()
+ 	
+ 	\item public ArrayDeque<E> \ltxt{clone}()
  	\item[] \cmnt{// Returns a copy of this deque.}
- 	\item public Spliterator<E> spliterator()
+ 	
+ 	\item public Spliterator<E> \ltxt{spliterator}()
  	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this deque. }
 \end{itemize*}
 %\item[] \cmnt{// }
 %TODO: Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Graphs, Trees, Recursion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
