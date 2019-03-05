@@ -30,9 +30,12 @@
 \newcommand{\cmnt}[1]{{\addfontfeature{Numbers=OldStyle} \sffamily\footnotesize #1}}
 \newcommand{\pseudo}[1]{{\addfontfeature{Numbers=OldStyle} \footnotesize \texttt{\textcolor{mygreen}{#1}}}}
 %\newcommand{\pseudo}[1]{\textcolor{red}{#1}}
+
 \titlespacing*{\section}
 {0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
 \titlespacing*{\subsection}
+{0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
+\titlespacing*{\subsubsection}
 {0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
 
 \author{Taylor Conners}
@@ -529,10 +532,7 @@
 	
 	\item public static int \textbf{binarySearch}(long[] a, int fromIndex, int toIndex, long key)
 	\item[] \cmnt{// Same as above except between fromIndex (inclusive) to toIndex(exclusive). }
-	
-\end{itemize*}
-
-\cmnt{// The above two signatures are overloaded where the first and fourth parameters (the array and the key) can have the following data-types:}
+	\item[]\cmnt{// The above two signatures are overloaded where the first and fourth parameters (the array and the key) can have the following data-types:}
 \begin{itemize*}
 	\item int
 	\item short
@@ -542,6 +542,10 @@
 	\item float
 	\item Object
 \end{itemize*}
+	
+\end{itemize*}
+
+
 
 \begin{itemize*}
 	\item public static <T> int binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)
@@ -556,8 +560,28 @@
 \begin{itemize*}
 	\item public static boolean \textbf{equals}(long[] a, long[] a2)
 	\item[] \cmnt{// Returns true if the two specified arrays of longs are equal to one another. Two arrays are considered equal if both arrays contain the same number of elements, and all corresponding pairs of elements in the two arrays are equal. In other words, two arrays are equal if they contain the same elements in the same order. Also, two array references are considered equal if both are null.}
+	\item[]\cmnt{// The above to signature is overloaded where both parameters can be arrays of type:}
+\begin{itemize*}
+	\item int
+	\item short
+	\item char
+	\item byte
+	\item boolean
+	\item double
+	\item float
+	\item Object
 \end{itemize*}
-\cmnt{// The above to signature is overloaded where both parameters can be arrays of type:}
+\end{itemize*}
+
+
+\subsubsection{Fill}
+\begin{itemize*}
+	\item public static void \textbf{fill}(long[] a, long val)
+	\item[] \cmnt{// Assigns the specified long value to each element of the specified array of longs.}
+	
+	\item public static void \textbf{fill}(long[] a, int fromIndex, int toIndex, long val)
+	\item[] \cmnt{// Assigns the specified long value to each element of the specified range of the specified array of longs. The range to be filled extends from index fromIndex, inclusive, to index toIndex, exclusive. (If fromIndex==toIndex, the range to be filled is empty.)}
+	\item[]\cmnt{// The above two signatures are overloaded where the array and the `val' can have the following data-types:}
 \begin{itemize*}
 	\item int
 	\item short
@@ -569,24 +593,6 @@
 	\item Object
 \end{itemize*}
 
-\subsubsection{Fill}
-\begin{itemize*}
-	\item public static void \textbf{fill}(long[] a, long val)
-	\item[] \cmnt{// Assigns the specified long value to each element of the specified array of longs.}
-	
-	\item public static void \textbf{fill}(long[] a, int fromIndex, int toIndex, long val)
-	\item[] \cmnt{// Assigns the specified long value to each element of the specified range of the specified array of longs. The range to be filled extends from index fromIndex, inclusive, to index toIndex, exclusive. (If fromIndex==toIndex, the range to be filled is empty.)}
-\end{itemize*}
-\cmnt{// The above two signatures are overloaded where the array and the `val' can have the following data-types:}
-\begin{itemize*}
-	\item int
-	\item short
-	\item char
-	\item byte
-	\item boolean
-	\item double
-	\item float
-	\item Object
 \end{itemize*}
 
 \subsubsection{copyOf}
@@ -599,9 +605,7 @@
 	
 	\item public static byte[] copyOf(byte[] original, int newLength)
 	\item[] \cmnt{// Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length. For all indices that are valid in both the original array and the copy, the two arrays will contain identical values. For any indices that are valid in the copy but not the original, the copy will contain (byte)0. Such indices will exist if and only if the specified length is greater than that of the original array.}
-\end{itemize*}
-
-\cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
+	\item[] \cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
 \begin{itemize*}
 	\item int
 	\item byte
@@ -612,14 +616,374 @@
 	\item double
 	\item float
 \end{itemize*}	
+\end{itemize*}
+
+
 
 \subsubsection{copyOfRange}
 \begin{itemize*}
 	\item public static <T> T[] copyOfRange(T[] original, int from, int to)
-\end{itemize*}	
+	\item[] \cmnt{// Copies the specified range of the specified array into a new array. The initial index of the range (from) must lie between zero and original.length, inclusive. The value at original[from] is placed into the initial element of the copy (unless from == original.length or from == to). Values from subsequent elements in the original array are placed into subsequent elements in the copy. The final index of the range (to), which must be greater than or equal to from, may be greater than original.length, in which case null is placed in all elements of the copy whose index is greater than or equal to original.length - from. The length of the returned array will be to - from. }
 	
+	\item public static <T, U> T[] copyOfRange(U[] original, int from, int to, Class<? extends T[]> newType)
+	\item[] \cmnt{// Same as above except that the resulting array is of the class newType.}
+	
+	\item public static byte[] copyOfRange(byte[] original, int from, int to)
+	\item[] \cmnt{// The above signature where the return type is primitive is overloaded where the array passed and returned can have the following data-types:}
+\begin{itemize*}
+	\item int
+	\item byte
+	\item short
+	\item char
+	\item long
+	\item boolean
+	\item double
+	\item float
+\end{itemize*}	
+\end{itemize*}
+
+\subsubsection{asList}
+\begin{itemize*}	
+	\item public static <T> List<T> \textbf{asList}(T... a)
+	\item[] \cmnt{// Returns a fixed-size list backed by the specified array. (Changes to the returned list "write through" to the array.) This method acts as bridge between array-based and collection-based APIs, in combination with Collection.toArray(). The returned list is serializable and implements RandomAccess. }
+	\item[] A convenient way to create a fixed-size list initialized to contain several elements:
+	\item[] \pseudo{List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");}
+\end{itemize*}
+
+\subsubsection{hashCode}
+\begin{itemize*}
+	\item public static int \textbf{hashCode}(long[] a)
+	\item[] \cmnt{// Returns a hash code based on the contents of the specified array.  For any two long arrays a and b such that Arrays.equals(a, b), it is also the case that Arrays.hashCode(a) == Arrays.hashCode(b). The value returned by this method is the same value that would be obtained by invoking the hashCode method on a List containing a sequence of Long instances representing the elements of a in the same order. If a is null, this method returns 0.}
+	\item[] \cmnt{// The above signature always returns int, but the type of array passed can be:}
+	\begin{itemize*}
+	\item int
+	\item byte
+	\item short
+	\item char
+	\item long
+	\item boolean
+	\item double
+	\item float
+	\item Object
+	\end{itemize*}
+\end{itemize*}
+
+\subsubsection{deepHashCode}
+\begin{itemize*}
+	\item public static int \textbf{deepHashCode}(Object[] a)
+	\item[] \cmnt{// Returns a hash code based on the "deep contents" of the specified array. If the array contains other arrays as elements, the hash code is based on their contents and so on, ad infinitum. It is therefore unacceptable to invoke this method on an array that contains itself as an element, either directly or indirectly through one or more levels of arrays. The behavior of such an invocation is undefined. }
+\end{itemize*}
+
+\subsubsection{deepEquals}
+\begin{itemize*}
+	\item public static boolean \textbf{deepEquals}(Object[] a1, Object[] a2)
+	\item[] \cmnt{// Returns true if the two specified arrays are deeply equal to one another. Unlike the equals(Object[],Object[]) method, this method is appropriate for use with nested arrays of arbitrary depth. Two array references are considered deeply equal if both are null, or if they refer to arrays that contain the same number of elements and all corresponding pairs of elements in the two arrays are deeply equal. }
+\end{itemize*}
+
+\subsubsection{toString}
+\begin{itemize*}
+	\item public static String \textbf{toString}(long[] a)
+	\item[] \cmnt{// Returns a string representation of the contents of the specified array. The string representation consists of a list of the array's elements, enclosed in square brackets ("[]"). Adjacent elements are separated by the characters ", " (a comma followed by a space). Elements are converted to strings as by String.valueOf(long). Returns "null" if a is null.}
+	\item[] \cmnt{// The above signature always returns String, but the type of array passed can be:}
+	\begin{itemize*}
+	\item int
+	\item byte
+	\item short
+	\item char
+	\item long
+	\item boolean
+	\item double
+	\item float
+	\item Object
+	\end{itemize*}
+\end{itemize*}
+
+\subsubsection{deepToString}
+\begin{itemize*}
+	\item public static String \textbf{deepToString}(Object[] a)
+	\item[] \cmnt{// Returns a string representation of the "deep contents" of the specified array. If the array contains other arrays as elements, the string representation contains their contents and so on. This method is designed for converting multidimensional arrays to strings. To avoid infinite recursion, if the specified array contains itself as an element, or contains an indirect reference to itself through one or more levels of arrays, the self-reference is converted to the string "[...]". For example, an array containing only a reference to itself would be rendered as "[[...]]". }
+\end{itemize*}
+
+\section{Vector}
+\cmnt{Roughly equivalent to an ArrayList, except Vectors are synchronized.}
+\subsection{Constructors}
+\begin{itemize*}
+	\item public \textbf{Vector}()
+	\item[] \cmnt{// Constructs an empty vector so that its internal data array has size 10 and its standard capacity increment is zero.}
+	
+	\item public \textbf{Vector}(int initialCapacity)
+	\cmnt{// Constructs an empty vector with the specified initial capacity and with its capacity increment equal to zero.}
+	
+	\item public \textbf{Vector}(int initialCapacity, int capacityIncrement)
+	\item[] \cmnt{// Constructs an empty vector with the specified initial capacity and capacity increment.}
+	
+	\item public \textbf{Vector}(Collection<? extends E> c)
+	\item[] \cmnt{// Constructs a vector containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
+\end{itemize*}
+
+\subsection{Vector Methods}
+\begin{itemize*}
+	\item public void \textbf{copyInto}(Object[] anArray)
+	\item[] \cmnt{// Copies the components of this vector into the specified array. The item at index k in this vector is copied into component k of anArray.}
+	
+	\item public void \textbf{trimToSize}()
+	\item[] \cmnt{// Trims the capacity of this vector to be the vector's current size. If the capacity of this vector is larger than its current size, then the capacity is changed to equal the size by replacing its internal data array, kept in the field elementData, with a smaller one. An application can use this operation to minimize the storage of a vector.}
+	
+	\item public void \textbf{ensureCapacity}(int minCapacity)
+	\item[] \cmnt{// Increases the capacity of this vector, if necessary, to ensure that it can hold at least the number of components specified by the minimum capacity argument. }
+	
+	\item public void \textbf{setSize}(int newSize)
+	\item[] \cmnt{// Sets the size of this vector. If the new size is greater than the current size, new null items are added to the end of the vector. If the new size is less than the current size, all components at index newSize and greater are discarded.}
+	
+	\item public int \textbf{capacity}()
+	\item[] \cmnt{// Returns the current capacity of this vector.}
+	
+	\item public int \textbf{size}()
+	\item[] \cmnt{// Returns the number of components in this vector.}
+	
+	\item public boolean \textbf{isEmpty}()
+	\item[] \cmnt{// Tests if this vector has no components.}
+	
+	\item public Enumeration<E> \textbf{elements}()
+	\item[] \cmnt{// Returns an enumeration of the components of this vector. The returned Enumeration object will generate all items in this vector. The first item generated is the item at index 0, then the item at index 1, and so on.}
+	
+	\item public boolean \textbf{contains}(Object o)
+	\item[] \cmnt{// Returns true if this vector contains the specified element. More formally, returns true if and only if this vector contains at least one element e such that (o==null ? e==null : o.equals(e)).}
+	
+	\item public int \textbf{indexOf}(Object o)
+	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this vector, or -1 if this vector does not contain the element. More formally, returns the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))), or -1 if there is no such index.}
+	
+	\item public int \textbf{indexOf}(Object o, int index)
+	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this vector, searching forwards from index, or returns -1 if the element is not found.}
+	
+	\item public int \textbf{lastIndexOf}(Object o)
+	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this vector, or -1 if this vector does not contain the element. More formally, returns the highest index i such that (o==null ? get(i)==null : o.equals(get(i))), or -1 if there is no such index.}
+	
+	\item public int \textbf{lastIndexOf}(Object o, int index)
+	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this vector, searching backwards from index, or returns -1 if the element is not found.}
+	
+	\item public E \textbf{elementAt}(int index)
+	\item[] \cmnt{// Returns the component at the specified index. Identical in function to List interface's get(int) method.}
+	
+	\item public E \textbf{firstElement}()
+	\item[] \cmnt{// Returns the first component (the item at index 0) of this vector.}
+	
+	\item public E \textbf{lastElement}()
+	\item[] \cmnt{// Returns the last component of the vector.}
+	
+	\item public void \textbf{setElementAt}(E obj, int index)
+	\item[] \cmnt{// Sets the component at the specified index of this vector to be the specified object. The previous component at that position is discarded. }
+	
+	\item public void \textbf{removeElementAt}(int index)
+	\item[] \cmnt{// Deletes the component at the specified index. Each component in this vector with an index greater or equal to the specified index is shifted downward to have an index one smaller than the value it had previously. The size of this vector is decreased by 1. Identical in function to List interface's remove(int) method, except that returns the old value at specified position.}
+	
+	\item public void \textbf{insertElementAt}(E obj, int index)
+	\item[] \cmnt{// Inserts the specified object as a component in this vector at the specified index. Each component in this vector with an index greater or equal to the specified index is shifted upward to have an index one greater than the value it had previously. Identical in function to List interface's add(int, E), except add reverses the order of parameters.}
+	
+	\item public void \textbf{addElement}(E obj)
+	\item[] \cmnt{// Adds the specified component to the end of this vector, increasing its size by one. The capacity of this vector is increased if its size becomes greater than its capacity. This method is identical in functionality to the add(E) method (which is part of the List interface).}
+	
+	\item public boolean \textbf{removeElement}(Object obj)
+	\item[] \cmnt{// Removes the first (lowest-indexed) occurrence of the argument from this vector. If the object is found in this vector, each component in the vector with an index greater or equal to the object's index is shifted downward to have an index one smaller than the value it had previously. This method is identical in functionality to the remove(Object) method (which is part of the List interface).}
+	
+	\item public Object \textbf{clone}()
+	\item[] \cmnt{// Returns a clone of this vector. The copy will contain a reference to a clone of the internal data array, not a reference to the original internal data array of this Vector object.}
+	
+	\item public Object[] \textbf{toArray}()
+	\item[] \cmnt{// Returns an array containing all of the elements in this Vector in the correct order.}
+	
+	\item public <T> T[] \textbf{toArray}(T[] a)
+	\item[] \cmnt{// Returns an array containing all of the elements in this Vector in the correct order; the runtime type of the returned array is that of the specified array. If the Vector fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this Vector. }
+	
+	\item public E \textbf{get}(int index)
+	\item[] \cmnt{// Returns the element at the specified position in this Vector.}
+	
+	\item public E \textbf{set}(int index, E element)
+	\item[] \cmnt{// Replaces the element at the specified position in this Vector with the specified element.}
+	
+	\item public boolean \textbf{add}(E e)
+	\item[] \cmnt{// Appends the specified element to the end of this Vector.}
+	
+	\item public boolean \textbf{remove}(Object o)
+	\item[] \cmnt{// Removes the first occurrence of the specified element in this Vector If the Vector does not contain the element, it is unchanged. More formally, removes the element with the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if such an element exists).}
+	
+	\item public void \textbf{add}(int index, E element)
+	\item[] \cmnt{// Inserts the specified element at the specified position in this Vector. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
+	
+	\item public E \textbf{remove}(int index)
+	\item[] \cmnt{// Removes the element at the specified position in this Vector. Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the Vector.}
+	
+	\item public void \textbf{clear}()
+	\item[] \cmnt{// Removes all of the elements from this Vector. The Vector will be empty after this call returns (unless it throws an exception).}
+	
+	\item public boolean \textbf{containsAll}(Collection<?> c)
+	\item[] \cmnt{// Returns true if this Vector contains all of the elements in the specified Collection.}
+	
+	\item public boolean \textbf{addAll}(Collection<? extends E> c)
+	\item[] \cmnt{// Appends all of the elements in the specified Collection to the end of this Vector, in the order that they are returned by the specified Collection's Iterator. The behavior of this operation is undefined if the specified Collection is modified while the operation is in progress. (This implies that the behavior of this call is undefined if the specified Collection is this Vector, and this Vector is nonempty.)}
+	
+	\item public boolean \textbf{removeAll}(Collection<?> c)
+	\item[] \cmnt{// Removes from this Vector all of its elements that are contained in the specified Collection.}
+	
+	\item public boolean \textbf{retainAll}(Collection<?> c)
+	\item[] \cmnt{// Retains only the elements in this Vector that are contained in the specified Collection. In other words, removes from this Vector all of its elements that are not contained in the specified Collection.}
+	
+	\item public boolean \textbf{addAll}(int index, Collection<? extends E> c)
+	\item[] \cmnt{// Inserts all of the elements in the specified Collection into this Vector at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices).}
+	
+	\item public boolean \textbf{equals}(Object o)
+	\item[] \cmnt{// Compares the specified Object with this Vector for equality. Returns true if and only if the specified Object is also a List, both Lists have the same size, and all corresponding pairs of elements in the two Lists are equal.}
+	
+	\item public int \textbf{hashCode}()
+	\item[] \cmnt{// Returns the hash code value for this Vector.}
+	
+	\item public String \textbf{toString}()
+	\item[] \cmnt{// Returns a string representation of this Vector, containing the String representation of each element.}
+	
+	\item public List<E> \textbf{subList}(int fromIndex, int toIndex)
+	\item[] \cmnt{// Returns a view of the portion of this List between fromIndex, inclusive, and toIndex, exclusive. (If fromIndex and toIndex are equal, the returned List is empty.) The returned List is backed by this List, so changes in the returned List are reflected in this List, and vice-versa. The returned List supports all of the optional List operations supported by this List. }
+	
+	\item protected void \textbf{removeRange}(int fromIndex, int toIndex)
+	\item[] \cmnt{// Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive. Shifts any succeeding elements to the left (reduces their index). This call shortens the list by (toIndex - fromIndex) elements. (If toIndex==fromIndex, this operation has no effect.)}
+	
+	\item public ListIterator<E> \textbf{listIterator}(int index)
+	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list. The specified index indicates the first element that would be returned by an initial call to next. An initial call to previous would return the element with the specified index minus one. }
+	
+	\item public ListIterator<E> \textbf{listIterator}()
+	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence). }
+	
+	\item public Iterator<E> \textbf{iterator}()
+	\item[] \cmnt{// Returns an iterator over the elements in this list in proper sequence. }
+	
+	\item public void \textbf{forEach}(Consumer<? super E> action)
+	\item[] \cmnt{// Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception. Unless otherwise specified by the implementing class, actions are performed in the order of iteration (if an iteration order is specified). Exceptions thrown by the action are relayed to the caller.}
+	
+	\item public boolean \textbf{removeIf}(Predicate<? super E> filter)
+	\item[] \cmnt{// Removes all of the elements of this collection that satisfy the given predicate. Errors or runtime exceptions thrown during iteration or by the predicate are relayed to the caller.}
+	
+	\item public void \textbf{replaceAll}(UnaryOperator<E> operator)
+	\item[] \cmnt{// Replaces each element of this list with the result of applying the operator to that element. Errors or runtime exceptions thrown by the operator are relayed to the caller.}
+	
+	\item public void \textbf{sort}(Comparator<? super E> c)
+	\item[] \cmnt{// Sorts this list according to the order induced by the specified Comparator. If the specified comparator is null then all elements in this list must implement the Comparable interface and the elements' natural ordering should be used. }
+	
+	\item public Spliterator<E> \textbf{spliterator}()
+	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this list. }
+\end{itemize*}
+
+\section{ArrayList}
+\cmnt{Roughly equivalent to a Vector, except an ArrayList is unsynchronized}
+\subsection{Constructors}
+\begin{itemize*}
+	\item public \textbf{ArrayList}()
+	\item[] \cmnt{// Constructs an empty list with an initial capacity of ten.}
+	
+	\item public \textbf{ArrayList}(int initialCapacity)
+	\item[] \cmnt{// Constructs an empty list with the specified initial capacity.}
+	
+	\item public \textbf{ArrayList}(Collection<? extends E> c)
+	\item[] \cmnt{// Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
+\end{itemize*}
+
+\subsection{ArrayList Methods}
+\begin{itemize*}
+	\item public void \textbf{trimToSize}()
+	\item[] \cmnt{// Trims the capacity of this ArrayList instance to be the list's current size. }
+	
+	\item public void \textbf{ensureCapacity}(int minCapacity)
+	\item[] \cmnt{// Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.}
+	
+	\item public int \textbf{size}()
+	\item[] \cmnt{//Returns the number of elements in this list. }
+	
+	\item public boolean isEmpty()
+	\item[] \cmnt{// Returns true if this list contains no elements.}
+	
+	\item public boolean contains(Object o)
+	\item[] \cmnt{// Returns true if this list contains the specified element.}
+	
+	\item public int indexOf(Object o)
+	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.}
+	
+	\item public int lastIndexOf(Object o)
+	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.}
+	
+	\item public Object clone()
+	\item[] \cmnt{// Returns a shallow copy of this ArrayList instance.}
+	
+	\item public Object[] toArray()
+	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element). }
+	
+	\item public <T> T[] toArray(T[] a)
+	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.}
+	
+	\item public E get(int index)
+	\item[] \cmnt{// Returns the element at the specified position in this list.}
+	
+	\item public E set(int index, E element)
+	\item[] \cmnt{// Replaces the element at the specified position in this list with the specified element.}
+	
+	\item public boolean add(E e)
+	\item[] \cmnt{// Appends the specified element to the end of this list.}
+	
+	\item public void add(int index, E element)
+	\item[] \cmnt{// Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
+	
+	\item public E remove(int index)
+	\item[] \cmnt{// Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices).}
+	
+	\item public boolean remove(Object o)
+	\item[] \cmnt{// Removes the first occurrence of the specified element from this list, if it is present.}
+	
+	\item public void clear()
+	\item[] \cmnt{// Removes all of the elements from this list. The list will be empty after this call returns.}
+	
+	\item public boolean addAll(Collection<? extends E> c)
+	\item[] \cmnt{// Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator. The behavior of this operation is undefined if the specified collection is modified while the operation is in progress. (This implies that the behavior of this call is undefined if the specified collection is this list, and this list is nonempty.)}
+	
+	\item public boolean addAll(int index, Collection<? extends E> c)
+	\item[] \cmnt{//Inserts all of the elements in the specified collection into this list, starting at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices).}
+	
+	\item protected void removeRange(int fromIndex, int toIndex)
+	\item[] \cmnt{// Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive. Shifts any succeeding elements to the left (reduces their index).}
+	
+	\item public boolean removeAll(Collection<?> c)
+	\item[] \cmnt{// Removes from this list all of its elements that are contained in the specified collection.}
+	
+	\item public boolean retainAll(Collection<?> c)
+	\item[] \cmnt{// Retains only the elements in this list that are contained in the specified collection.}
+	
+	\item public ListIterator<E> listIterator(int index)
+	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list. The specified index indicates the first element that would be returned by an initial call to next. An initial call to previous would return the element with the specified index minus one.}
+	
+	\item public ListIterator<E> listIterator()
+	\item[] \cmnt{// Returns a list iterator over the elements in this list (in proper sequence). }
+	
+	\item public Iterator<E> iterator()
+	\item[] \cmnt{// Returns an iterator over the elements in this list in proper sequence. }
+	
+	\item public List<E> subList(int fromIndex, int toIndex)
+	\item[] \cmnt{// Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive. (If fromIndex and toIndex are equal, the returned list is empty.) The returned list is backed by this list, so non-structural changes in the returned list are reflected in this list, and vice-versa. The returned list supports all of the optional list operations. }
+	
+	\item public void forEach(Consumer<? super E> action)
+	\item[] \cmnt{// Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.}
+	
+	\item public Spliterator<E> spliterator()
+	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this list. }
+	
+	\item public boolean removeIf(Predicate<? super E> filter)
+	\item[] \cmnt{// Removes all of the elements of this collection that satisfy the given predicate.}
+	
+	\item public void replaceAll(UnaryOperator<E> operator)
+	\item[] \cmnt{// Replaces each element of this list with the result of applying the operator to that element.}
+	
+	\item public void sort(Comparator<? super E> c)
+	\item[] \cmnt{// Sorts this list according to the order induced by the specified Comparator. }
+	
+
+\end{itemize*}
 %\item[] \cmnt{// }
-%TODO: Vectors, Arrays, ArrayList, List, StringTokenizer, Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Stacks, Queues, Graphs, Trees, Linked Lists, Recursion
+%TODO: ArrayList, List, StringTokenizer, Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Stacks, Queues, Graphs, Trees, Linked Lists, Recursion
 
 
 
