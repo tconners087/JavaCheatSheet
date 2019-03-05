@@ -1,0 +1,49 @@
+\contentsline {section}{\numberline {1}Strings}{1}% 
+\contentsline {subsection}{\numberline {1.1}Creating a String Instance}{1}% 
+\contentsline {subsection}{\numberline {1.2}String Methods}{1}% 
+\contentsline {section}{\numberline {2}HashSet}{2}% 
+\contentsline {subsection}{\numberline {2.1}Constructors}{2}% 
+\contentsline {subsection}{\numberline {2.2}Creating a HashSet Instance}{2}% 
+\contentsline {subsection}{\numberline {2.3}HashSet Methods}{2}% 
+\contentsline {section}{\numberline {3}HashMap}{2}% 
+\contentsline {subsection}{\numberline {3.1}Constructors}{2}% 
+\contentsline {subsection}{\numberline {3.2}Creating a HashMap Instance}{2}% 
+\contentsline {subsection}{\numberline {3.3}HashMap Methods}{3}% 
+\contentsline {section}{\numberline {4}Hashtable}{3}% 
+\contentsline {subsection}{\numberline {4.1}Constructors}{3}% 
+\contentsline {subsection}{\numberline {4.2}Creating a Hashtable Instance}{4}% 
+\contentsline {subsection}{\numberline {4.3}Hashtable Methods}{4}% 
+\contentsline {section}{\numberline {5}Interface Enumeration<E>}{4}% 
+\contentsline {subsection}{\numberline {5.1}Enumeration Methods}{4}% 
+\contentsline {section}{\numberline {6}Arrays}{4}% 
+\contentsline {subsection}{\numberline {6.1}Arrays Methods}{4}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Sort}{4}% 
+\contentsline {subsubsection}{\numberline {6.1.2}parallelSort}{4}% 
+\contentsline {subsubsection}{\numberline {6.1.3}Parallel Prefix}{5}% 
+\contentsline {subsubsection}{\numberline {6.1.4}Binary Search}{5}% 
+\contentsline {subsubsection}{\numberline {6.1.5}Equals}{5}% 
+\contentsline {subsubsection}{\numberline {6.1.6}Fill}{5}% 
+\contentsline {subsubsection}{\numberline {6.1.7}copyOf}{6}% 
+\contentsline {subsubsection}{\numberline {6.1.8}copyOfRange}{6}% 
+\contentsline {subsubsection}{\numberline {6.1.9}asList}{6}% 
+\contentsline {subsubsection}{\numberline {6.1.10}hashCode}{6}% 
+\contentsline {subsubsection}{\numberline {6.1.11}deepHashCode}{7}% 
+\contentsline {subsubsection}{\numberline {6.1.12}deepEquals}{7}% 
+\contentsline {subsubsection}{\numberline {6.1.13}toString}{7}% 
+\contentsline {subsubsection}{\numberline {6.1.14}deepToString}{7}% 
+\contentsline {section}{\numberline {7}Vector}{7}% 
+\contentsline {subsection}{\numberline {7.1}Constructors}{7}% 
+\contentsline {subsection}{\numberline {7.2}Vector Methods}{7}% 
+\contentsline {section}{\numberline {8}ArrayList}{9}% 
+\contentsline {subsection}{\numberline {8.1}Constructors}{9}% 
+\contentsline {subsection}{\numberline {8.2}ArrayList Methods}{9}% 
+\contentsline {section}{\numberline {9}LinkedList}{10}% 
+\contentsline {subsection}{\numberline {9.1}Constructors}{10}% 
+\contentsline {subsection}{\numberline {9.2}LinkedList Methods}{10}% 
+\contentsline {section}{\numberline {10}StringBuffer / StringBuilder}{11}% 
+\contentsline {subsection}{\numberline {10.1}Constructors}{11}% 
+\contentsline {subsection}{\numberline {10.2}StringBuffer Methods}{11}% 
+\contentsline {section}{\numberline {11}ArrayDeque}{13}% 
+\contentsline {subsection}{\numberline {11.1}Constructors}{13}% 
+\contentsline {subsection}{\numberline {11.2}Creating an ArrayDeque Instance}{13}% 
+\contentsline {subsection}{\numberline {11.3}ArrayDeque Methods}{13}% 
