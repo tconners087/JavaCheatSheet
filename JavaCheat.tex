@@ -23,13 +23,13 @@
 \setsansfont[
   	Ligatures={TeX,Common},
   	%Letters=SmallCaps,
-  	%Color=660000
+  	Color=555555
 ]{Adobe Garamond Pro}
 
 \definecolor{mygreen}{RGB}{85,107,47}
 \newcommand{\cmnt}[1]{{\addfontfeature{Numbers=OldStyle} \sffamily\footnotesize #1}}
-\newcommand{\pseudo}[1]{{\addfontfeature{Numbers=OldStyle} \footnotesize \texttt{\textcolor{mygreen}{#1}}}}
-%\newcommand{\pseudo}[1]{\textcolor{red}{#1}}
+\newcommand{\pseudo}[1]{{\addfontfeature{Numbers=OldStyle} \footnotesize \textcolor{mygreen}{#1}}}
+\newcommand{\ltxt}[1]{{\large \textbf{#1}}}
 
 \titlespacing*{\section}
 {0pt}{0.05ex plus 1ex minus .1ex}{0.05ex plus .05ex}
@@ -46,25 +46,23 @@
 \section{Strings}
 
 \subsection{Creating a String Instance}
-%\begin{minipage}{\linewidth}
 \begin{itemize}
 	\item String str1 = ``Hello''; \cmnt{// Using literal String}
 	\item str2 = new String(``World''); \cmnt{// Using `new' keyword}
 \end{itemize}
-%\end{minipage}
 
 \subsection{String Methods}
 \begin{itemize*}
-	\item char \textbf{charAt}(int index)
+	\item char \ltxt{charAt}(int index)
 	\item[] \cmnt{// Returns the character at a specified index. Throws IndexOutOfBoundsException.}
 	
-	\item boolean \textbf{equalsIgnoreCase}(String str)
+	\item boolean \ltxt{equalsIgnoreCase}(String str)
 	\item[] \cmnt{// Compares the string values (ignoring case) and returns boolean value.}
 	
-	\item boolean \textbf{equals}(Object obj)
+	\item boolean \ltxt{equals}(Object obj)
 	\item[] \cmnt{// Compares the string object and returns boolean value.}
 	
-	\item int \textbf{compareTo}(String str)
+	\item int \ltxt{compareTo}(String str)
 	\item[] \cmnt{// Compares two strings based upon Unicode value of each character.}
 		\begin{itemize*}
 		\item return 0 if both strings are equal.
@@ -73,34 +71,34 @@
 		\item if used to compare a string where $length \geq 1$ to an empty string, compareTo returns string length.
 		\end{itemize*}
 	
-	\item int \textbf{compareToIgnoreCase}(String str)
+	\item int \ltxt{compareToIgnoreCase}(String str)
 	\item[] \cmnt{// Compares two strings based upon Unicode value of each character \emph{ignoring case}.}
 	
-	\item boolean \textbf{startsWith}(String prefix, int offset)
+	\item boolean \ltxt{startsWith}(String prefix, int offset)
 	\item[] \cmnt{// Checks whether a substring (starting at offset index) has the supplied prefix.}
 	
-	\item boolean \textbf{startsWith}(String prefix)
+	\item boolean \ltxt{startsWith}(String prefix)
 	\item[] \cmnt{// Checks whether a string has the supplied prefix.}
 	
-	\item boolean \textbf{endsWith}(String suffix)
+	\item boolean \ltxt{endsWith}(String suffix)
 	\item[] \cmnt{// Checks whether a string has the supplied suffix.}
 	
-	\item int \textbf{hashCode}()
+	\item int \ltxt{hashCode}()
 	\item[] \cmnt{// Returns the hash code of the string.}
 	
-	\item int \textbf{indexOf}(int ch)
+	\item int \ltxt{indexOf}(int ch)
 	\item[] \cmnt{// Returns the index of the first occurrence of the character `ch' in the string.}
 	
-	\item int \textbf{indexOf}(int ch, int fromIndex)
+	\item int \ltxt{indexOf}(int ch, int fromIndex)
 	\item[] \cmnt{// Same as indexOf but starts searching for `ch' at the specified fromIndex.}
 	
-	\item int \textbf{lastIndexOf}(int ch)
+	\item int \ltxt{lastIndexOf}(int ch)
 	\item[] \cmnt{// Returns the index of the last occurrence of `ch' in the string}
 	
-	\item int \textbf{lastIndexOf}(int ch, int fromIndex)
+	\item int \ltxt{lastIndexOf}(int ch, int fromIndex)
 	\item[] \cmnt{// Same as above except beginning seach from `fromIndex'.}
 	
-	\item int \textbf{indexOf}(String str)
+	\item int \ltxt{indexOf}(String str)
 	\item[] \cmnt{// Returns the index (first letter) of the first occurrence of specified substring `str'. If it doesn't exist, it returns $-1$.}
 	
 	\item int \textbf{lastIndexOf}(String str)
@@ -979,11 +977,302 @@
 	
 	\item public void sort(Comparator<? super E> c)
 	\item[] \cmnt{// Sorts this list according to the order induced by the specified Comparator. }
-	
+\end{itemize*}
 
+\section{LinkedList}
+\subsection{Constructors}
+\begin{itemize*}
+	\item public LinkedList()
+	\item[] \cmnt{// Constructs an empty list.}
+	\item public LinkedList(Collection<? extends E> c)
+	\item[] \cmnt{// Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.}
+\end{itemize*}
+
+\subsection{LinkedList Methods}
+\begin{itemize*}
+	\item public E getFirst()
+	\item[] \cmnt{// Returns the first element in this list.}
+	\item public E getLast()
+	\item[] \cmnt{// Returns the last element in this list.}
+	\item public E removeFirst()
+	\item[] \cmnt{// Removes and returns the first element from this list.}
+	\item public E removeLast()
+	\item[] \cmnt{// Removes and returns the last element from this list.}
+	\item public void addFirst(E e)
+	\item[] \cmnt{// Inserts the specified element at the beginning of this list.}
+	\item public void addLast(E e)
+	\item[] \cmnt{// Appends the specified element to the end of this list. }
+	\item public boolean contains(Object o)
+	\item[] \cmnt{//Returns true if this list contains the specified element. }
+	\item public int size()
+	\item[] \cmnt{// Returns the number of elements in this list.}
+	\item public boolean add(E e)
+	\item[] \cmnt{// Appends the specified element to the end of this list. }
+	\item public boolean remove(Object o)
+	\item[] \cmnt{// Removes the first occurrence of the specified element from this list, if it is present. If this list does not contain the element, it is unchanged.}
+	\item public boolean addAll(Collection<? extends E> c)
+	\item[] \cmnt{// Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator. }
+	\item public boolean addAll(int index, Collection<? extends E> c)
+	\item[] \cmnt{// Inserts all of the elements in the specified collection into this list, starting at the specified position. Shifts the element currently at that position (if any) and any subsequent elements to the right (increases their indices). }
+	\item public void clear()
+	\item[] \cmnt{// Removes all of the elements from this list. The list will be empty after this call returns.}
+	\item public E get(int index)
+	\item[] \cmnt{// Returns the element at the specified position in this list.}
+	\item public E set(int index, E element)
+	\item[] \cmnt{// Replaces the element at the specified position in this list with the specified element.}
+	\item public void add(int index, E element)
+	\item[] \cmnt{// Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).}
+	\item public E remove(int index)
+	\item[] \cmnt{// Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the list.}
+	\item public int indexOf(Object o)
+	\item[] \cmnt{// Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.}
+	\item public int lastIndexOf(Object o)
+	\item[] \cmnt{// Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.}
+	\item public E peek()
+	\item[] \cmnt{// Retrieves, but does not remove, the head (first element) of this list.}
+	\item public E element()
+	\item[] \cmnt{// Retrieves, but does not remove, the head (first element) of this list.}
+	\item public E poll()
+	\item[] \cmnt{// Retrieves and removes the head (first element) of this list.}
+	\item public E remove()
+	\item[] \cmnt{// Retrieves and removes the head (first element) of this list.}
+	\item public boolean offer(E e)
+	\item[] \cmnt{// Adds the specified element as the tail (last element) of this list.}
+	\item public boolean offerFirst(E e)
+	\item[] \cmnt{// Inserts the specified element at the front of this list.}
+	\item public E peekFirst()
+	\item[] \cmnt{// Retrieves, but does not remove, the first element of this list, or returns null if this list is empty.}
+	\item public E peekLast()
+	\item[] \cmnt{// Retrieves, but does not remove, the last element of this list, or returns null if this list is empty.}
+	\item public E pollFirst()
+	\item[] \cmnt{// Retrieves and removes the first element of this list, or returns null if this list is empty.}
+	\item public E pollLast()
+	\item[] \cmnt{// Retrieves and removes the last element of this list, or returns null if this list is empty.}
+	\item public void push(E e)
+	\item[] \cmnt{// Pushes an element onto the stack represented by this list. In other words, inserts the element at the front of this list. }
+	\item public E pop()
+	\item[] \cmnt{// Pops an element from the stack represented by this list. In other words, removes and returns the first element of this list. }
+	\item public boolean removeFirstOccurrence(Object o)
+	\item[] \cmnt{// Removes the last occurrence of the specified element in this list (when traversing the list from head to tail). If the list does not contain the element, it is unchanged.}
+	\item public ListIterator<E> listIterator(int index)
+	\item[] \cmnt{// Returns a list-iterator of the elements in this list (in proper sequence), starting at the specified position in the list. Obeys the general contract of List.listIterator(int).}
+	\item public Iterator<E> descendingIterator()
+	\item[] \cmnt{// Returns an iterator over the elements in this deque in reverse sequential order.}
+	\item public Object clone()
+	\item[] \cmnt{// Returns a shallow copy of this LinkedList.}
+	\item public Object[] toArray()
+	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element). }
+	\item public <T> T[] toArray(T[] a)
+	\item[] \cmnt{// Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.}
+\end{itemize*}
+
+\section{StringBuffer / StringBuilder}
+\cmnt{StringBuffer and StringBuilder are both mutable classes with the same general purpose; however, StringBuffer is thread safe and synchronized while StringBuilder is not. Included here is StringBuffer constructors and methods, but StringBuilder is the same, except for the different return type on some methods.}
+\subsection{Constructors}
+\begin{itemize*}
+	\item public StringBuffer()
+	\item[] \cmnt{// Constructs a string buffer with no characters in it and an initial capacity of 16 characters.}
+	\item public StringBuffer(int capacity)
+	\item[] \cmnt{// Constructs a string buffer with no characters in it and the specified initial capacity.}
+	\item public StringBuffer(String str)
+	\item[] \cmnt{// Constructs a string buffer initialized to the contents of the specified string. The initial capacity of the string buffer is 16 plus the length of the string argument.}
+	\item public StringBuffer(CharSequence seq)
+	\item[] \cmnt{// Constructs a string buffer that contains the same characters as the specified CharSequence. The initial capacity of the string buffer is 16 plus the length of the CharSequence argument. If the length of the specified CharSequence is less than or equal to zero, then an empty buffer of capacity 16 is returned.}
+\end{itemize*}
+\subsection{StringBuffer Methods}
+\begin{itemize*}
+	\item public int length()
+	\item[] \cmnt{// Returns the length (character count).}
+	\item public int capacity()
+	\item[] \cmnt{// Returns the current capacity. The capacity is the amount of storage available for newly inserted characters, beyond which an allocation will occur.}
+	\item public void ensureCapacity(int minimumCapacity)
+	\item[] \cmnt{// Ensures that the capacity is at least equal to the specified minimum. If the current capacity is less than the argument, then a new internal array is allocated with greater capacity. The new capacity is the larger of minimumCapacity or twice the old capacity + 2. If the minimumCapacity argument is nonpositive, this method takes no action and simply returns.}
+	\item public void trimToSize()
+	\item[] \cmnt{// Attempts to reduce storage used for the character sequence. If the buffer is larger than necessary to hold its current sequence of characters, then it may be resized to become more space efficient.}
+	\item public void setLength(int newLength)
+	\item[] \cmnt{// Sets the length of the character sequence. The sequence is changed to a new character sequence whose length is specified by the argument. Unspecified characters are `$\ $u0000'.}
+	\item public char charAt(int index)
+	\item[] \cmnt{// Returns the char value in this sequence at the specified index.}
+	\item public int codePointAt(int index)
+	\item[] \cmnt{// Returns the character (Unicode code point) at the specified index. The index refers to char values (Unicode code units) and ranges from 0 to length() - 1. }
+	\item public int codePointBefore(int index)
+	\item[] \cmnt{// Returns the character (Unicode code point) before the specified index. The index refers to char values (Unicode code units) and ranges from 1 to length(). }
+	\item public int codePointCount(int beginIndex, int endIndex)
+	\item[] \cmnt{// Returns the number of Unicode code points in the specified text range of this sequence.}
+	\item public int offsetByCodePoints(int index, int codePointOffset)
+	\item[] \cmnt{// Returns the index within this sequence that is offset from the given index by codePointOffset code points. Unpaired surrogates within the text range given by index and codePointOffset count as one code point each.}
+	\item public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+	\item[] \cmnt{// Characters are copied from this sequence into the destination character array dst. The first character to be copied is at index srcBegin; the last character to be copied is at index srcEnd-1. The total number of characters to be copied is srcEnd-srcBegin. The characters are copied into the subarray of dst starting at index dstBegin and ending at index: $dstbegin + (srcEnd-srcBegin) - 1$}
+	\item public void setCharAt(int index, char ch)
+	\item[] \cmnt{// The character at the specified index is set to ch.}
+	\item public StringBuffer append(Object obj)
+	\item[] \cmnt{// Appends the string representation of the Object argument. The overall effect is exactly as if the argument were converted to a string by the method String.valueOf(Object), and the characters of that string were then appended to this character sequence.}
+	\item public StringBuffer append(String str)
+	\item[] \cmnt{// Appends the specified string to this character sequence. The characters of the String argument are appended, in order, increasing the length of this sequence by the length of the argument. If str is null, then the four characters "null" are appended. }
+	\item public StringBuffer append(StringBuffer sb)
+	\item[] \cmnt{// Appends the specified StringBuffer to this sequence. Same null behavior as above.}
+	\item public StringBuffer append(CharSequence s)
+	\item[] \cmnt{// Appends the specified CharSequence to this sequence. The characters of the CharSequence argument are appended, in order, increasing the length of this sequence by the length of the argument. The result of this method is exactly the same as if it were an invocation of this.append(s, 0, s.length()); This method synchronizes on this (the destination) object but does not synchronize on the source (s). Same null behavior as above.}
+	\item public StringBuffer append(CharSequence s, int start, int end)
+	\item[] \cmnt{// Same as above but for a subsequence of the CharSequence.}
+	\item public StringBuffer append(char[] str)
+	\item[] \cmnt{// Appends the string representation of the char array argument to this sequence. }
+	\item public StringBuffer append(char[] str, int offset, int len)
+	\item[] \cmnt{// Same as above but for a subsequence of the char array.}
+	\item public StringBuffer append(boolean b)
+	\item[] \cmnt{// Appends the string representation of the boolean argument to the sequence. }
+	\item public StringBuffer append(char c)
+	\item[] \cmnt{// Appends the string representation of the char argument to this sequence. }
+	\item public StringBuffer append(int i)
+	\item[] \cmnt{// Appends the string representation of the int argument to this sequence. }
+	\item public StringBuffer appendCodePoint(int codePoint)
+	\item[] \cmnt{// Appends the string representation of the codePoint argument to this sequence. }
+	\item public StringBuffer append(long lng)
+	\item[] \cmnt{// Appends the string representation of the long argument to this sequence. }
+	\item public StringBuffer append(float f)
+	\item[] \cmnt{// Appends the string representation of the float argument to this sequence. }
+	\item public StringBuffer append(double d)
+	\item[] \cmnt{// Appends the string representation of the double argument to this sequence. }
+	\item public StringBuffer delete(int start, int end)
+	\item[] \cmnt{// Removes the characters in a substring of this sequence. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. If start is equal to end, no changes are made.}
+	\item public StringBuffer deleteCharAt(int index)
+	\item[] \cmnt{// Removes the char at the specified position in this sequence. }
+	\item public StringBuffer replace(int start, int end, String str)
+	\item[] \cmnt{// Replaces the characters in a substring of this sequence with characters in the specified String. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. First the characters in the substring are removed and then the specified String is inserted at start. (This sequence will be lengthened to accommodate the specified String if necessary.)}
+	\item public String substring(int start)
+	\item[] \cmnt{// Returns a new String that contains a subsequence of characters currently contained in this character sequence. The substring begins at the specified index and extends to the end of this sequence.}
+	\item public CharSequence subSequence(int start, int end)
+	\item[] \cmnt{// Returns a new character sequence that is a subsequence of this sequence. }
+	\item public String substring(int start, int end)
+	\item[] \cmnt{// Returns a new String that contains a subsequence of characters currently contained in this sequence. The substring begins at the specified start and extends to the character at index end - 1.}
+	\item public StringBuffer insert(int index, char[] str, int offset, int len)
+	\item[] \cmnt{// Inserts the string representation of a subarray of the str array argument into this sequence. }
+	\item public StringBuffer insert(int offset, Object obj)
+	\item[] \cmnt{// Inserts the string representation of the Object argument into this character sequence.}
+	\item public StringBuffer insert(int offset, String str)
+	\item[] \cmnt{// Inserts the string into this character sequence. }
+	\item public StringBuffer insert(int offset, char[] str)
+	\item[] \cmnt{// Inserts the string representation of the char array argument into this sequence. }
+	\item public StringBuffer insert(int dstOffset, CharSequence s)
+	\item[] \cmnt{// Inserts the specified CharSequence into this sequence. }
+	\item public StringBuffer insert(int dstOffset, CharSequence s, int start, int end)
+	\item[] \cmnt{// Inserts a subsequence of the specified CharSequence into this sequence. }
+	\item public StringBuffer insert(int offset, boolean b)
+	\item[] \cmnt{// Inserts the string representation of the boolean argument into this sequence. }
+	\item public StringBuffer insert(int offset, char c)
+	\item[] \cmnt{// Inserts the string representation of the char argument into this sequence. }
+	\item public StringBuffer insert(int offset, int i)
+	\item[] \cmnt{// Inserts the string representation of the second int argument into this sequence. }
+	\item public StringBuffer insert(int offset, long l)
+	\item[] \cmnt{// Inserts the string representation of the long argument into this sequence. }
+	\item public StringBuffer insert(int offset, float f)
+	\item[] \cmnt{// Inserts the string representation of the float argument into this sequence. }
+	\item public StringBuffer insert(int offset, double d)
+	\item[] \cmnt{// Inserts the string representation of the double argument into this sequence. }
+	\item public int indexOf(String str)
+	\item[] \cmnt{// Returns the index within this string of the first occurrence of the specified substring. The integer returned is the smallest value k such that: this.toString().startsWith(str, k) }
+	\item public int indexOf(String str, int fromIndex)
+	\item[] \cmnt{// Returns the index within this string of the first occurrence of the specified substring, starting at the specified index. The integer returned is the smallest value k for which: k >= Math.min(fromIndex, this.length()) \&\& this.toString().startsWith(str, k). If no such value of k exists, then -1 is returned.}
+	\item public int lastIndexOf(String str)
+	\item[] \cmnt{// Returns the index within this string of the rightmost occurrence of the specified substring. The rightmost empty string "" is considered to occur at the index value this.length().}
+	\item public int lastIndexOf(String str, int fromIndex)
+	\item[] \cmnt{// Returns the index within this string of the last occurrence of the specified substring.}
+	\item public StringBuffer reverse()
+	\item[] \cmnt{// Causes this character sequence to be replaced by the reverse of the sequence. If there are any surrogate pairs included in the sequence, these are treated as single characters for the reverse operation.}
+	\item public String toString()
+	\item[] \cmnt{// Returns a string representing the data in this sequence.}
+	
+\end{itemize*}
+
+\section{ArrayDeque}
+\cmnt{Can be used as a Stack or a Queue.}
+\subsection{Constructors}
+\begin{itemize*}
+	\item public ArrayDeque()
+	\item[] \cmnt{// Constructs an empty array deque with an initial capacity sufficient to hold 16 elements.}
+	\item public ArrayDeque(int numElements)
+	\item[] \cmnt{// Constructs an empty array deque with an initial capacity sufficient to hold the specified number of elements.}
+	\item public ArrayDeque(Collection<? extends E> c)
+	\item[] \cmnt{// Constructs a deque containing the elements of the specified collection, in the order they are returned by the collection's iterator. (The first element returned by the collection's iterator becomes the first element, or front of the deque.)}
+\end{itemize*}
+
+\subsection{Creating an ArrayDeque Instance}
+\begin{itemize*}
+	\item \pseudo{Deque<String> deque = new ArrayDeque<String>();}
+\end{itemize*}
+
+\subsection{ArrayDeque Methods}
+\begin{itemize*}
+	\item public void addFirst(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the front of this deque.}
+ 	\item public void addLast(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to add(E).}
+ 	\item public boolean offerFirst(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the front of this deque.}
+ 	\item public boolean offerLast(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the end of this deque.}
+ 	\item public E removeFirst()
+ 	\item[] \cmnt{// Retrieves and removes the first element of this deque. This method differs from pollFirst only in that it throws an exception if this deque is empty.}
+ 	\item public E removeLast()
+ 	\item[] \cmnt{// Retrieves and removes the last element of this deque. This method differs from pollLast only in that it throws an exception if this deque is empty.}
+ 	\item public E pollFirst()
+ 	\item[] \cmnt{// Retrieves and removes the first element of this deque, or returns null if this deque is empty.}
+ 	\item public E pollLast()
+ 	\item[] \cmnt{// Retrieves and removes the last element of this deque, or returns null if this deque is empty.}
+ 	\item public E getFirst()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the first element of this deque. This method differs from peekFirst only in that it throws an exception if this deque is empty.}
+ 	\item public E getLast()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the last element of this deque. This method differs from peekLast only in that it throws an exception if this deque is empty.}
+ 	\item public E peekFirst()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the first element of this deque, or returns null if this deque is empty.}
+ 	\item public E peekLast()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.}
+ 	\item public boolean removeFirstOccurrence(Object o)
+ 	\item[] \cmnt{// Removes the first occurrence of the specified element in this deque (when traversing the deque from head to tail). If the deque does not contain the element, it is unchanged. More formally, removes the first element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call).}
+ 	\item public boolean removeLastOccurrence(Object o)
+ 	\item[] \cmnt{// Removes the last occurrence of the specified element in this deque (when traversing the deque from head to tail). If the deque does not contain the element, it is unchanged. More formally, removes the last element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call).}
+ 	\item public boolean add(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to addLast(E).}
+ 	\item public boolean offer(E e)
+ 	\item[] \cmnt{// Inserts the specified element at the end of this deque. This method is equivalent to offerLast(E).}
+	\item public E remove()
+ 	\item[] \cmnt{// Retrieves and removes the head of the queue represented by this deque. This method differs from poll only in that it throws an exception if this deque is empty. This method is equivalent to removeFirst().}
+ 	\item public E poll()
+ 	\item[] \cmnt{// Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty. This method is equivalent to pollFirst().}
+ 	\item public E element()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the head of the queue represented by this deque. This method differs from peek only in that it throws an exception if this deque is empty. This method is equivalent to getFirst().}
+ 	\item public E peek()
+ 	\item[] \cmnt{// Retrieves, but does not remove, the head of the queue represented by this deque, or returns null if this deque is empty. This method is equivalent to peekFirst().}
+ 	\item public void push(E e)
+ 	\item[] \cmnt{// Pushes an element onto the stack represented by this deque. In other words, inserts the element at the front of this deque. This method is equivalent to addFirst(E).}
+ 	\item public E pop()
+ 	\item[] \cmnt{// Pops an element from the stack represented by this deque. In other words, removes and returns the first element of this deque. This method is equivalent to removeFirst().}
+ 	\item public int size()
+ 	\item[] \cmnt{// Returns the number of elements in this deque.}
+ 	\item public boolean isEmpty()
+ 	\item[] \cmnt{// Returns true if this deque contains no elements.}
+ 	\item public Iterator<E> iterator()
+ 	\item[] \cmnt{// Returns an iterator over the elements in this deque. The elements will be ordered from first (head) to last (tail). This is the same order that elements would be dequeued (via successive calls to remove() or popped (via successive calls to pop()).}
+ 	\item public Iterator<E> descendingIterator()
+ 	\item[] \cmnt{// Returns an iterator over the elements in this deque in reverse sequential order. The elements will be returned in order from last (tail) to first (head).}
+ 	\item public boolean contains(Object o)
+ 	\item[] \cmnt{// Returns true if this deque contains the specified element. More formally, returns true if and only if this deque contains at least one element e such that o.equals(e).}
+ 	\item public boolean remove(Object o)
+ 	\item[] \cmnt{// Removes a single instance of the specified element from this deque. If the deque does not contain the element, it is unchanged. More formally, removes the first element e such that o.equals(e) (if such an element exists). Returns true if this deque contained the specified element (or equivalently, if this deque changed as a result of the call). This method is equivalent to removeFirstOccurrence(Object).}
+ 	\item public void clear()
+ 	\item[] \cmnt{// Removes all of the elements from this deque. The deque will be empty after this call returns.}
+ 	\item public Object[] toArray()
+ 	\item[] \cmnt{// Returns an array containing all of the elements in this deque in proper sequence (from first to last element). The returned array will be "safe" in that no references to it are maintained by this deque. (In other words, this method must allocate a new array). The caller is thus free to modify the returned array. This method acts as bridge between array-based and collection-based APIs.}
+ 	\item public <T> T[] toArray(T[] a)
+ 	\item[] \cmnt{// Returns an array containing all of the elements in this deque in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array. If the deque fits in the specified array, it is returned therein. Otherwise, a new array is allocated with the runtime type of the specified array and the size of this deque. If this deque fits in the specified array with room to spare (i.e., the array has more elements than this deque), the element in the array immediately following the end of the deque is set to null. Like the toArray() method, this method acts as bridge between array-based and collection-based APIs. Further, this method allows precise control over the runtime type of the output array, and may, under certain circumstances, be used to save allocation costs. }
+ 	\item[] \cmnt{// Suppose x is a deque known to contain only strings. The following code can be used to dump the deque into a newly allocated array of String: String[] y = x.toArray(new String[0]); Note that toArray(new Object[0]) is identical in function to toArray().}
+ 	\item public ArrayDeque<E> clone()
+ 	\item[] \cmnt{// Returns a copy of this deque.}
+ 	\item public Spliterator<E> spliterator()
+ 	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this deque. }
 \end{itemize*}
 %\item[] \cmnt{// }
-%TODO: ArrayList, List, StringTokenizer, Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Stacks, Queues, Graphs, Trees, Linked Lists, Recursion
+%TODO: Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Graphs, Trees, Recursion
 
 
 

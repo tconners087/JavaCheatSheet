@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  5 MAR 2019 10:50
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.1.28)  5 MAR 2019 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,33 +399,39 @@ LaTeX Info: Redefining \rmfamily on input line 23.
 
 Package fontspec Info: Font family 'AdobeGaramondPro(1)' created for font
 (fontspec)             'Adobe Garamond Pro' with options
-(fontspec)             [Ligatures=TeX,Ligatures={TeX,Common}].
+(fontspec)             [Ligatures=TeX,Ligatures={TeX,Common},Color=555555].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Adobe Garamond
 (fontspec)             Pro/OT:script=latn;language=DFLT;+liga;mapping=tex-text;
-"
+color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"Adobe
 (fontspec)             Garamond
 (fontspec)             Pro/OT:script=latn;language=DFLT;+liga;+smcp;mapping=tex
--text;"
+-text;color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'bold' (bx/n) with NFSS spec.: <->"Adobe Garamond
 (fontspec)             Pro/B/OT:script=latn;language=DFLT;+liga;mapping=tex-tex
-t;"
+t;color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: <->"Adobe
 (fontspec)             Garamond
 (fontspec)             Pro/B/OT:script=latn;language=DFLT;+liga;+smcp;mapping=t
-ex-text;"
+ex-text;color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Adobe Garamond
 (fontspec)             Pro/I/OT:script=latn;language=DFLT;+liga;mapping=tex-tex
-t;"
+t;color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
 (fontspec)             - 'bold italic' (bx/it) with NFSS spec.: <->"Adobe
 (fontspec)             Garamond
 (fontspec)             Pro/BI/OT:script=latn;language=DFLT;+liga;mapping=tex-te
-xt;"
+xt;color=555555FF
+(fontspec)             ;"
 (fontspec)             - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 
 LaTeX Info: Redefining \sffamily on input line 28.
@@ -525,96 +531,44 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 73.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 73.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 73.
+(Font)              <6> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 104.
+(Font)              <7> on input line 102.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 104.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: TU).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
+(Font)              <5> on input line 102.
+ [1
 
-Overfull \hbox (33.1036pt too wide) in paragraph at lines 136--137
-[][]\TU/lmtt/m/n/10 String str4 = new String(``New String'').intern();[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
-[][]\TU/lmtt/m/n/10 System.out.println("Are str1 and str2 the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-[][]\TU/lmtt/m/n/10 System.out.println("Are str1 and str3 the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-[][]\TU/lmtt/m/n/10 System.out.println("Are str1 and str2 the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
-[][]\TU/lmtt/m/n/10 System.out.println("Are str1 and str3 the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
-\TU/lmtt/m/n/10 same: " + (str1 == str3.intern()); //
- []
-
-[1
-
-]
-Overfull \hbox (42.5536pt too wide) in paragraph at lines 273--274
-[][]\TU/lmtt/m/n/10 While(itr.hasNext()){ System.out.println(itr.next())
- []
-
-
-Overfull \hbox (22.90611pt too wide) in paragraph at lines 297--298
-[][]\TU/lmtt/m/n/10 HashMap<Integer, String> hmap = new HashMap<Integer,
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
-[][]\TU/lmtt/m/n/10 map.compute(key, (k, v) -> (v == null) ?
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
-[][]\TU/lmtt/m/n/10 Hashtable<String, String> hashtable = new
- []
-
-[3]
-Overfull \hbox (61.23611pt too wide) in paragraph at lines 433--434
-[][]\TU/lmtt/m/n/10 for (Enumeration<E> e = v.elements(); e.hasMoreElements();)
-
- []
-
+] [2] [3]
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 606--607
-[]\TU/AdobeGaramondPro(1)/m/n/12 public static byte[] copyOf(byte[] original, i
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+[]\TU/AdobeGaramondPro(0)/m/n/12 public static byte[] copyOf(byte[] original, i
 nt
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 650--651
-[][]\TU/lmtt/m/n/10 List<String> stooges = Arrays.asList("Larry",
+[6] [7] [8] [9] [10] [11]
+Underfull \hbox (badness 6808) in paragraph at lines 1156--1157
+[]\TU/AdobeGaramondPro(0)/m/n/12 public StringBuffer insert(int dstOffset, Char
+Se-
  []
 
-[6] [7] [8] [9] [10] (./JavaCheat.aux) ) 
+
+Underfull \hbox (badness 6808) in paragraph at lines 1158--1159
+[]\TU/AdobeGaramondPro(0)/m/n/12 public StringBuffer insert(int dstOffset, Char
+Se-
+ []
+
+[12] [13] [14] (./JavaCheat.aux) ) 
 Here is how much of TeX's memory you used:
- 14955 strings out of 492933
- 319712 string characters out of 6136537
- 455018 words of memory out of 5000000
+ 14954 strings out of 492933
+ 320059 string characters out of 6136537
+ 455171 words of memory out of 5000000
  18924 multiletter control sequences out of 15000+600000
  535266 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,5n,93p,768b,607s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,5n,93p,908b,607s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on JavaCheat.pdf (10 pages).
+Output written on JavaCheat.pdf (14 pages).
