@@ -8,6 +8,26 @@
 \usepackage[no-math]{fontspec}
 \usepackage{titlesec}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linktoc = all,
+	linkcolor=black,
+	citecolor=black,
+	filecolor=black,
+	pagecolor=black,
+	urlcolor=blue,
+	bookmarks=true,
+	pdfborder={0 0 0 0},
+	pdftitle={sometitle},
+	pdfauthor={me},
+	pdfkeywords={somekeywords},
+	pdfdisplaydoctitle=true,
+	pdftoolbar=true,
+	pdfmenubar=true,
+	pdfstartview=X Y Z
+}
+
 
 \setlist{nolistsep,leftmargin=0.25in, topsep=0pt}
 \setlength\parindent{0pt}
@@ -44,7 +64,7 @@
 \author{Taylor Conners}
 \title{Java Cheat Sheet}
 \begin{document}
-%\tableofcontents
+\tableofcontents
 \begin{multicols*}{3}
 
 \scol{Strings}
@@ -1314,8 +1334,23 @@
  	\item public Spliterator<E> \ltxt{spliterator}()
  	\item[] \cmnt{// Creates a late-binding and fail-fast Spliterator over the elements in this deque. }
 \end{itemize*}
+
+\section{Collections}
+\subsection{Fields}
+\begin{itemize*}
+	\item \ltxt{EMPTY$\_$LIST}
+	\item[] \cmnt{// Modifier and Type: static List}
+	\item[] \cmnt{// The empty list (immutable).}
+	\item \ltxt{EMPTY$\_$MAP}
+	\item[] \cmnt{// Modifier and Type: static Map}
+	\item[] \cmnt{// The empty map (immutable).}
+	\item \ltxt{EMPTY$\_$SET}
+	\item[] \cmnt{// Modifier and Type: static Set}
+	\item[] \cmnt{// The empty set (immutable).}
+\end{itemize*}
+
 %\item[] \cmnt{// }
-%TODO: Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Graphs, Trees, Recursion
+%TODO: Sorting Algorithms, Greedy Algorithms, Searches, Dynamic Programming, Graphs, Trees, Recursion, Bubble Sort, Comparator, Counting Sort, Binary Search, BST
 
 
 
